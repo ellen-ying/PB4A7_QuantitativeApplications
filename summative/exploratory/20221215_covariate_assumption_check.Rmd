@@ -1,0 +1,55 @@
+---
+title: "20221215_covariate_assumption_check"
+author: "Yurun (Ellen) Ying"
+date: "2022-12-15"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse);library(haven);library(here);library(broom)
+
+# input data
+bac_data <- 
+  here("summative/data/hansen_dwi.dta") %>% 
+  read_dta() %>% 
+  mutate(
+    # code into drive under influence (dui) = 1 if bac1 >= 0.08
+    dui = ifelse(bac1 >= 0.08, 1, 0),
+    
+    # create a centered bac1 variable
+    bac1_ctd = bac1 - 0.08,
+    
+    # create a quadratic term from bac1
+    bac1_sq = bac1^2
+    
+    )
+
+source(here("summative/code/summaryR.R"))
+```
+
+We will check the assumptions that observed covariates didn't have a jump at the cutoff point.
+
+```{r}
+dat_bandwidth_0.05 <- bac_data %>% filter(abs(bac1_ctd) <= 0.05)
+
+# check being white
+white_rdd <- dat_bandwidth_0.05 %>% lm(white ~ dui*bac1, data = .)
+
+# use a customary function to calculate robust SEs
+summaryR.lm(white_rdd, type = "hc1") 
+
+# check being male
+male_rdd <- dat_bandwidth_0.05 %>% lm(male ~ dui*bac1, data = .)
+summaryR.lm(male_rdd, type = "hc1") 
+
+# check accident
+accident_rdd <- dat_bandwidth_0.05 %>% lm(acc ~ dui*bac1, data = .)
+summaryR.lm(accident_rdd, type = "hc1") 
+
+# check age
+age_rdd <- dat_bandwidth_0.05 %>% lm(aged ~ dui*bac1, data = .)
+summaryR.lm(age_rdd, type = "hc1") 
+```
+
