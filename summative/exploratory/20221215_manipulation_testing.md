@@ -3,7 +3,7 @@
 Yurun (Ellen) Ying
 2022-12-15
 
-## Testing for density discontinuity at the cutoffpoint
+## Testing for density discontinuity at the cutoff point
 
 We apply the estimator introduced by [Cattaneo, Jansson, and Ma
 (2020)](https://doi.org/10.1080/01621459.2019.1635480). To test whether
