@@ -7,6 +7,8 @@ We will check the assumptions that observed covariates didn’t have a
 jump at the cutoff point.
 
 ``` r
+# analysis officially given in the do file
+# get the data within the bandwidth
 dat_bandwidth_0.05 <- bac_data %>% filter(abs(bac1_ctd) <= 0.05)
 
 # check being white
@@ -140,3 +142,14 @@ summaryR.lm(age_rdd, type = "hc1")
     ## F-statistic: 62.95 on 3 and 89963 DF,  p-value: < 2.2e-16
     ## 
     ## Note: Heteroscedasticity-consistent standard errors using adjustment hc1
+
+There is no evidence that being white or being male were different
+between people who were just below and those just above the cutoff
+point. However, having accident was 15.44 percentage point lower for
+people above the cutoff point than those below, and people above the
+cutoff point were 6.22 years younger on average than those below.
+
+## Notes for future improvement
+
+- Compute confidence intervals
+- Incorporate logistic regression to estimate white, male, and accident
