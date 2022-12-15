@@ -1,0 +1,59 @@
+---
+title: "20221215_manipulation_testing"
+author: "Yurun (Ellen) Ying"
+date: "2022-12-15"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse);library(haven);library(here);library(rddensity);library(broom)
+
+# input data
+bac_data <- 
+  here("summative/data/hansen_dwi.dta") %>% 
+  read_dta() %>% 
+  mutate(
+    # code into drive under influence (dui) = 1 if bac1 >= 0.08
+    dui = ifelse(bac1 >= 0.08, 1, 0),
+    
+    # create a quadratic term from bac1
+    bac1_sq = bac1^2
+    
+    )
+
+```
+
+## Testing for density discontinuity at the cutoffpoint
+
+We apply the estimator introduced by [Cattaneo, Jansson, and Ma (2020)](https://doi.org/10.1080/01621459.2019.1635480). To test whether there is a discontinuity of the probability density function at the cutoff point.
+
+```{r}
+# set cutoff
+bac_cutoff <- 0.08
+
+# get a vector of bac1
+bac1 <- bac_data %>% pull(bac1)
+
+# test for density discontinuity
+bac_manipulation_test <- bac1 %>% rddensity(c = bac_cutoff) # set the cutoff point
+
+# check the results
+bac_manipulation_test %>% summary() 
+
+# get the plot range
+plot_min <- bac_cutoff - 3*bac_manipulation_test$h$left
+plot_max <- bac_cutoff + 3*bac_manipulation_test$h$right
+
+# plot the results
+rdplotdensity(bac_manipulation_test, bac1,
+              histBreaks = seq(plot_min, plot_max, by = 0.001) - 0.0005, # adjust the break to remove heaping
+              xlabel = "Blood Alcohol Content (BAC)",
+              ylabel = "Density",
+              title = "Empirical and Estimated Density of Blood Alcohol Content",
+              noPlot = TRUE
+              ) 
+```
+
+We cannot reject the null hypothesis that there is no discontinuity in the pdf at the cutoff point. The result indicates that there is no manipulation at the cutoff point.
