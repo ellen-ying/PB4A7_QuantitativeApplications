@@ -118,11 +118,41 @@ dat_bandwidth_0.05 %>%
 ```
 
 
+## Donut hole regression
+
+Since there is heaping in our data, we will run a donut hole regression and check the robustness of our results.
+
+```{r}
+# add donut hole
+dat_bandwidth_0.05 <- 
+  # observation are dropped within one unit next to the cutoff point
+  dat_bandwidth_0.05 %>% mutate(donut = ifelse(abs(bac1_ctd) <= 0.001, 1, 0))
+
+# linear regression
+recidivism_linear_a_donut <- 
+  dat_bandwidth_0.05 %>% 
+  filter(donut == 0) %>% 
+  lm(recidivism ~ dui*bac1 + white + male + acc + aged,
+     data = .)
+summaryR.lm(recidivism_linear_a_donut, type = "hc1")
+
+# narrower bandwidth
+dat_bandwidth_0.025 <- 
+  dat_bandwidth_0.025 %>% mutate(donut = ifelse(abs(bac1_ctd) <= 0.001, 1, 0))
+
+# linear regression
+recidivism_linear_b_donut <- 
+  dat_bandwidth_0.025 %>% 
+  filter(donut == 0) %>% 
+  lm(recidivism ~ dui*bac1 + white + male + acc + aged,
+     data = .)
+summaryR.lm(recidivism_linear_b_donut, type = "hc1")
+```
+
+The donut hole regressions indicate that receiving punishment decreased the rate of recidivism by 5.57 percentage point (and 5.62 pp using 0.025 bandwidth).
+
 
 ## Notes for improvement
 
-- Donut hole regression for handling heaping
+- Run local polynomials and explain why they are needed
 - Consider what controls to put in the model and how they should be put
-
-## Donut hole regression
-

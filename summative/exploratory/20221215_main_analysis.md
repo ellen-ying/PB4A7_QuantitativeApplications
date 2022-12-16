@@ -233,9 +233,101 @@ dat_bandwidth_0.05 %>%
 
 ![](20221215_main_analysis_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
+## Donut hole regression
+
+Since there is heaping in our data, we will run a donut hole regression
+and check the robustness of our results.
+
+``` r
+# add donut hole
+dat_bandwidth_0.05 <- 
+  # observation are dropped within one unit next to the cutoff point
+  dat_bandwidth_0.05 %>% mutate(donut = ifelse(abs(bac1_ctd) <= 0.001, 1, 0))
+
+# linear regression
+recidivism_linear_a_donut <- 
+  dat_bandwidth_0.05 %>% 
+  filter(donut == 0) %>% 
+  lm(recidivism ~ dui*bac1 + white + male + acc + aged,
+     data = .)
+summaryR.lm(recidivism_linear_a_donut, type = "hc1")
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = recidivism ~ dui * bac1 + white + male + acc + aged, 
+    ##     data = .)
+    ## 
+    ## Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -0.14318 -0.11920 -0.10615 -0.08631  0.96589 
+    ## 
+    ## Coefficients:
+    ##               Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)  1.073e-01  1.379e-02   7.782 7.23e-15 ***
+    ## dui         -5.572e-02  1.578e-02  -3.531 0.000414 ***
+    ## bac1         1.991e-02  2.021e-01   0.099 0.921517    
+    ## white        1.634e-02  2.830e-03   5.772 7.84e-09 ***
+    ## male         3.240e-02  2.358e-03  13.742  < 2e-16 ***
+    ## acc          3.989e-03  3.481e-03   1.146 0.251752    
+    ## aged        -8.779e-04  8.561e-05 -10.255  < 2e-16 ***
+    ## dui:bac1     3.757e-01  2.180e-01   1.723 0.084866 .  
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.3083 on 88077 degrees of freedom
+    ## Multiple R-squared:  0.003632,   Adjusted R-squared:  0.003553 
+    ## F-statistic: 49.75 on 7 and 88077 DF,  p-value: < 2.2e-16
+    ## 
+    ## Note: Heteroscedasticity-consistent standard errors using adjustment hc1
+
+``` r
+# narrower bandwidth
+dat_bandwidth_0.025 <- 
+  dat_bandwidth_0.025 %>% mutate(donut = ifelse(abs(bac1_ctd) <= 0.001, 1, 0))
+
+# linear regression
+recidivism_linear_b_donut <- 
+  dat_bandwidth_0.025 %>% 
+  filter(donut == 0) %>% 
+  lm(recidivism ~ dui*bac1 + white + male + acc + aged,
+     data = .)
+summaryR.lm(recidivism_linear_b_donut, type = "hc1")
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = recidivism ~ dui * bac1 + white + male + acc + aged, 
+    ##     data = .)
+    ## 
+    ## Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -0.14264 -0.11700 -0.10396 -0.08352  0.96373 
+    ## 
+    ## Coefficients:
+    ##               Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)  0.1073940  0.0313117   3.430 0.000604 ***
+    ## dui         -0.0562108  0.0379260  -1.482 0.138316    
+    ## bac1        -0.0688737  0.4428151  -0.156 0.876399    
+    ## white        0.0178598  0.0038833   4.599 4.25e-06 ***
+    ## male         0.0343135  0.0032411  10.587  < 2e-16 ***
+    ## acc          0.0037363  0.0050550   0.739 0.459837    
+    ## aged        -0.0008005  0.0001170  -6.845 7.77e-12 ***
+    ## dui:bac1     0.4214619  0.5016908   0.840 0.400866    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.3059 on 45067 degrees of freedom
+    ## Multiple R-squared:  0.003947,   Adjusted R-squared:  0.003792 
+    ## F-statistic: 27.49 on 7 and 45067 DF,  p-value: < 2.2e-16
+    ## 
+    ## Note: Heteroscedasticity-consistent standard errors using adjustment hc1
+
+The donut hole regressions indicate that receiving punishment decreased
+the rate of recidivism by 5.57 percentage point (and 5.62 pp using 0.025
+bandwidth).
+
 ## Notes for improvement
 
-- Donut hole regression for handling heaping
+- Run local polynomials and explain why they are needed
 - Consider what controls to put in the model and how they should be put
-
-## Donut hole regression
