@@ -75,50 +75,6 @@ summaryR.lm(qua_b, type = "hc1")
 
 The linear model estimates indicate that receiving punishment decreased the rate of recidivism by 5.91 percentage point (6.4 percentage when using 0.025 bandwidth). The quadratic model estimates indicate that receiving punishment decreased the rate of recidivism by 11.3 percentage point (37.1 percentage when using 0.025 bandwidth).
 
-Make the scatter plots
-
-```{r}
-#min_bac <- min(dat_bandwidth_0.05$bac1) 
-min_bac <- .030999999
-max_bac_lower <- filter(dat_bandwidth_0.05, bac1_ctd < 0)$bac1 %>% max()
-max_bac <- max(dat_bandwidth_0.05$bac1)
-breaks <- c(seq(min_bac, max_bac_lower, length.out = 43), 
-               seq(0.08, max_bac, length.out = 49)[-1])
-
-
-dat_bandwidth_0.05 %>% 
-  # create 90 bins with one break at the cutoff point
-  mutate(bins = cut(bac1, breaks = breaks)) %>% 
-   # select(bins, bac1) %>% arrange(bac1) %>% View()
-  group_by(bins) %>% 
-  summarize(
-    recidivism = mean(recidivism), # calculate the mean recidivism in each group
-    bac = mean(bac1), # roughly the midpoint of each bin
-    dui = ifelse(bac >=0.08, 1, 0) %>% factor()
-  ) %>% 
-  ggplot(aes(x = bac, y = recidivism, color = dui)) +
-  geom_point(show.legend = FALSE) +
-  geom_vline(xintercept = 0.08, color = "red", linetype = 2) +
-  scale_x_continuous(breaks = seq(0.02, 0.14, by = 0.02)) +
-  scale_y_continuous(breaks = seq(0.07, 0.15, by = 0.02)) +
-  scale_color_discrete(type = wes_palette("Royal1", 2, type = "discrete")) +
-  labs(x = "Blood Alcohol Content (BAC)", y = "Recidivism") +
-  theme_classic() +
-  theme(
-    panel.grid = element_blank(),
-    panel.grid.major.y = element_line(color = "grey80", size = 0.4),
-    axis.line = element_line(size = 0.4),
-    axis.text.y = element_text(size = 11, margin = margin(0, 5, 0, 0)),
-    axis.text.x = element_text(size = 11, margin = margin(5, 0, 0, 0)),
-    axis.ticks = element_line(size = 0.4),
-    axis.ticks.length = unit(6, units = "pt"),
-    axis.title.y = element_text(size = 13, margin = margin(0, 10, 0, 0)),
-    axis.title.x = element_text(size = 13, margin = margin(10, 0, 0, 0)),
-    plot.margin = margin(20, 20, 20, 20)
-  )
-         
-```
-
 
 ## Donut hole regression
 

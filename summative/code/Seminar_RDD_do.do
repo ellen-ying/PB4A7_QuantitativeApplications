@@ -92,9 +92,15 @@ binscatter recidivism bac1 if bac1>0.03 & bac1<0.13, line(qfit) by(dui)
 
 
 * rdplot
-rdplot recidivism bac1 if bac1>=0.03 & bac1<=0.13, p(4) masspoints(off) c(0.08) graph_options(title(RD Plot Recidivism and BAC))
+rdplot recidivism bac1 if bac1>=0.03 & bac1<=0.13, p(2) masspoints(off) c(0.08) graph_options(title(RD Plot Recidivism and BAC))
 
 rdplot recidivism bac1 if bac1>=0.03 & bac1<=0.13, binselect(qs) p(4) masspoints(off) c(0.08) graph_options(title(RD Plot Recidivism and BAC))
+
+* cmogram for banwidth 0.06 to 0.11
+cmogram recidivism bac1 if bac1>0.06 & bac1<0.11, cut(0.08) scatter line(0.08) 
+cmogram recidivism bac1 if bac1>0.06 & bac1<0.11, cut(0.08) scatter line(0.08) lfitci
+cmogram recidivism bac1 if bac1>0.06 & bac1<0.11, cut(0.08) scatter line(0.08) qfitci
+cmogram recidivism bac1 if bac1>0.06 & bac1<0.11, cut(0.08) scatter line(0.08) lowess
 
 
 ** Local polynomial regressions extension with rdrobust
