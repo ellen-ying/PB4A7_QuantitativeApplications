@@ -1,0 +1,79 @@
+---
+output:
+  pdf_document:
+    number_sections: true
+    keep_tex: true
+    latex_engine: xelatex
+mainfont: Times New Roman
+geometry: margin=1.0in
+fontsize: 11pt
+header-includes:
+  - \newcommand{\bcenter}{\begin{center}}
+  - \newcommand{\ecenter}{\end{center}}
+  - \newcommand{\btitlepage}{\begin{titlepage}}
+  - \newcommand{\etitlepage}{\end{titlepage}}
+  - \usepackage{setspace}\onehalfspacing
+  - \usepackage{booktabs}
+  - \usepackage[font=small,labelfont=bf]{caption}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\btitlepage
+
+\bcenter
+
+\vspace*{30mm}
+
+Candidate number: 49045
+
+\vspace*{5mm}
+
+# Replication of Hansen (2015) Punishment and Deterrence: Evidence from Drunk Driving {-}
+
+\vspace*{30mm}
+
+Submitted as the summative assessment for \
+
+PB4A7: Quantitative Applications for Behavioural Science 2022
+
+\ecenter
+
+\etitlepage
+
+\newpage
+
+In the study *Punishment and Deterrence: Evidence from Drunk Driving* **(Hansen, 2015)**, Hansen investigated the effect of punishments and sanctions on reducing repeat drunk driving. The study implemented a quasi-experimental design, utilising the administrative records from 1995 to 2011 of the state of Washington, U.S., where two thresholds of blood alcohol content (BAC) are used to determine the status of driving under the influence (DUI). Specifically, a driver with a measured BAC over 0.08 is considered a case of DUI and will be punished via measures such as fines, jail time, and driving license suspension. One with a BAC over 0.15 is considered a case of aggravated DUI, to which more severe punishments and sanctions are applied. Since BAC measure has clear-cut numeric thresholds for determining whether a driver will receive harsher punishments, and neither drivers or police can manipulate this measure, Hansen applied a regression discontinuity design to analyse the data **(expand on the justification of using RDD)**. He hypothesized that receiving harsher punishments and sanctions at both thresholds would reduce offenders' future recidivism of DUI. He further applied the RDD to analyse the effect of receiving harsher punishments on the degree of deterrence, incapacitation, and rehabilitation in order to identify the mechanism through which harsher punishments might reduce recidivism **(check the paper to see whether this sentence is precise)**.
+
+**Ideally also the results**
+
+The present study aims to replicate the findings from **Hansen (2015)** using regression discontinuity design applied to a similar data **(what is it exactly...)**. It will be focused on estimating the effect of receiving punishments on reducing recidivism at the 0.08 BAC threshold only. The paper proceeds as follows. Section 1 discusses the econometric method and assumptions underlying its application to the current data. Section 2 presents the main results, and Section 3 discusses critiques and extensions to the original study. Section 4 concludes.
+
+# Methods and Assumptions
+
+The present study applies the regression discontinuity design to the data provided by the class instructor. Several assumptions need to be met so that the regression discontinuity design can give valid and accurate estimates. First, people need to be randomly assigned to receiving punishment at the BAC threshold. In other words, neither the drivers nor the police can manipulate the BAC level and thus whether one will receive punishment. **Hansen (2015)** has already given a plausible theoretical justification for this assumption. Empirically, I plot the distribution of BAC and test for discontinuity in its distribution at the threshold. Figure \ref{fig:bac_hist_continuous} shows the distribution of BAC level. Based on a recently developed local polynomial density estimator **(CJM, 2020)**, the hypothesis that the distribution is continuous at 0.08 cannot be rejected at the level of 0.05 (*p* = 0.890). Therefore, there is no evidence for the existence of manipulation on the BAC level.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{../figures/bac_histogram_continuous.pdf}
+  \caption{\textbf{Histogram of blood alcohol content as a continuous variable.} The blood alcohol content is plotted as a continuous variable with a bin width of 0.001, the precision used on the breathalysers. The y-axis represents the frequency of observations in each bin. The vertical black lines represent the two thresholds at 0.08 and 0.15.}
+  \label{fig:bac_hist_continuous}
+\end{figure}
+
+The second assumption is that the running variable should not contain non-random heaping, that is, BAC should not be much more likely to take certain values than others. Based on figure \ref{fig:bac_hist_continuous}, this assumption seems to be violated. Curiously, when BAC is plotted as a discrete variable, non-random heaping disappears (Figure \ref{fig:bac_hist_discrete}). This probably originates from the lack of precision in BAC in the current data. Many BAC values deviates by a very small amount from the values that are supposed to be given by the breathalysers (i.e., precise to three digits after the decimal point). For bins where the value at the left boundary deviates upwards and the values at the right boundary deviates downwards, they will contain a larger number of observations than other binds and thus leads to heaping. This would not occur if the values were precise so that the number of observations are rightly plotted by two bins, or if we treat BAC as discrete and give each value its own bin. **(consider using a simulation to justify this claim?)**
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{../figures/bac_histogram_discrete.pdf}
+  \caption{\textbf{Histogram of blood alcohol content as a discrete variable.} The blood alcohol content is plotted as a discrete variable with a bin width of 0.001, the precision used on the breathalysers. The y-axis represents the frequency of observations in each bin. The vertical black lines represent the two thresholds at 0.08 and 0.15.}
+  \label{fig:bac_hist_discrete}
+\end{figure}
+
+
+# Results
+
+# Critique and Extension
+
+# Conclusion

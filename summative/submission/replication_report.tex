@@ -1,0 +1,201 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Times New Roman}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\bcenter}{\begin{center}}
+\newcommand{\ecenter}{\end{center}}
+\newcommand{\btitlepage}{\begin{titlepage}}
+\newcommand{\etitlepage}{\end{titlepage}}
+\usepackage{setspace}\onehalfspacing
+\usepackage{booktabs}
+\usepackage[font=small,labelfont=bf]{caption}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{center}
+
+\vspace*{30mm}
+
+Candidate number: 49045
+
+\vspace*{5mm}
+
+\hypertarget{replication-of-hansen-2015-punishment-and-deterrence-evidence-from-drunk-driving}{%
+\section*{Replication of Hansen (2015) Punishment and Deterrence:
+Evidence from Drunk
+Driving}\label{replication-of-hansen-2015-punishment-and-deterrence-evidence-from-drunk-driving}}
+\addcontentsline{toc}{section}{Replication of Hansen (2015) Punishment
+and Deterrence: Evidence from Drunk Driving}
+
+\vspace*{30mm}
+
+Submitted as the summative assessment for\\
+
+PB4A7: Quantitative Applications for Behavioural Science 2022
+
+\end{center}
+
+\end{titlepage}
+
+\newpage
+
+In the study \emph{Punishment and Deterrence: Evidence from Drunk
+Driving} \textbf{(Hansen, 2015)}, Hansen investigated the effect of
+punishments and sanctions on reducing repeat drunk driving. The study
+implemented a quasi-experimental design, utilising the administrative
+records from 1995 to 2011 of the state of Washington, U.S., where two
+thresholds of blood alcohol content (BAC) are used to determine the
+status of driving under the influence (DUI). Specifically, a driver with
+a measured BAC over 0.08 is considered a case of DUI and will be
+punished via measures such as fines, jail time, and driving license
+suspension. One with a BAC over 0.15 is considered a case of aggravated
+DUI, to which more severe punishments and sanctions are applied. Since
+BAC measure has clear-cut numeric thresholds for determining whether a
+driver will receive harsher punishments, and neither drivers or police
+can manipulate this measure, Hansen applied a regression discontinuity
+design to analyse the data \textbf{(expand on the justification of using
+RDD)}. He hypothesized that receiving harsher punishments and sanctions
+at both thresholds would reduce offenders' future recidivism of DUI. He
+further applied the RDD to analyse the effect of receiving harsher
+punishments on the degree of deterrence, incapacitation, and
+rehabilitation in order to identify the mechanism through which harsher
+punishments might reduce recidivism \textbf{(check the paper to see
+whether this sentence is precise)}.
+
+\textbf{Ideally also the results}
+
+The present study aims to replicate the findings from \textbf{Hansen
+(2015)} using regression discontinuity design applied to a similar data
+\textbf{(what is it exactly\ldots)}. It will be focused on estimating
+the effect of receiving punishments on reducing recidivism at the 0.08
+BAC threshold only. The paper proceeds as follows. Section 1 discusses
+the econometric method and assumptions underlying its application to the
+current data. Section 2 presents the main results, and Section 3
+discusses critiques and extensions to the original study. Section 4
+concludes.
+
+\hypertarget{methods-and-assumptions}{%
+\section{Methods and Assumptions}\label{methods-and-assumptions}}
+
+The present study applies the regression discontinuity design to the
+data provided by the class instructor. Several assumptions need to be
+met so that the regression discontinuity design can give valid and
+accurate estimates. First, people need to be randomly assigned to
+receiving punishment at the BAC threshold. In other words, neither the
+drivers nor the police can manipulate the BAC level and thus whether one
+will receive punishment. \textbf{Hansen (2015)} has already given a
+plausible theoretical justification for this assumption. Empirically, I
+plot the distribution of BAC and test for discontinuity in its
+distribution at the threshold. Figure \ref{fig:bac_hist_continuous}
+shows the distribution of BAC level. Based on a recently developed local
+polynomial density estimator \textbf{(CJM, 2020)}, the hypothesis that
+the distribution is continuous at 0.08 cannot be rejected at the level
+of 0.05 (\emph{p} = 0.890). Therefore, there is no evidence for the
+existence of manipulation on the BAC level.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{../figures/bac_histogram_continuous.pdf}
+  \caption{\textbf{Histogram of blood alcohol content as a continuous variable.} The blood alcohol content is plotted as a continuous variable with a bin width of 0.001, the precision used on the breathalysers. The y-axis represents the frequency of observations in each bin. The vertical black lines represent the two thresholds at 0.08 and 0.15.}
+  \label{fig:bac_hist_continuous}
+\end{figure}
+
+The second assumption is that the running variable should not contain
+non-random heaping, that is, BAC should not be much more likely to take
+certain values than others. Based on figure
+\ref{fig:bac_hist_continuous}, this assumption seems to be violated.
+Curiously, when BAC is plotted as a discrete variable, non-random
+heaping disappears (Figure \ref{fig:bac_hist_discrete}). This probably
+originates from the lack of precision in BAC in the current data. Many
+BAC values deviates by a very small amount from the values that are
+supposed to be given by the breathalysers (i.e., precise to three digits
+after the decimal point). For bins where the value at the left boundary
+deviates upwards and the values at the right boundary deviates
+downwards, they will contain a larger number of observations than other
+binds and thus leads to heaping. This would not occur if the values were
+precise so that the number of observations are rightly plotted by two
+bins, or if we treat BAC as discrete and give each value its own bin.
+\textbf{(consider using a simulation to justify this claim?)}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{../figures/bac_histogram_discrete.pdf}
+  \caption{\textbf{Histogram of blood alcohol content as a discrete variable.} The blood alcohol content is plotted as a discrete variable with a bin width of 0.001, the precision used on the breathalysers. The y-axis represents the frequency of observations in each bin. The vertical black lines represent the two thresholds at 0.08 and 0.15.}
+  \label{fig:bac_hist_discrete}
+\end{figure}
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+\hypertarget{critique-and-extension}{%
+\section{Critique and Extension}\label{critique-and-extension}}
+
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
+
+\end{document}
