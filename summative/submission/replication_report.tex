@@ -187,7 +187,7 @@ The second assumption is that the running variable should not contain
 non-random heaping, which can lead to biased estimates in regression
 discontinuity models \textbf{(Barreca et al., 2011)}. In other words,
 BAC should not be much more likely to take certain values than others.
-Based on figure \ref{fig:bac_hist_continuous}, this assumption seems to
+Based on Figure \ref{fig:bac_hist_continuous}, this assumption seems to
 be violated. Curiously, when BAC is plotted as a discrete variable,
 non-random heaping disappears (Figure \ref{fig:bac_hist_discrete}). A
 closer inspection of the data suggests that this is probably due to the
@@ -214,24 +214,26 @@ claim?)}
 \subsection{The model}\label{the-model}}
 
 The present study utilises a local linear regression model with a
-triangular kernel weight function to estimate the effect of receiving
+rectangular kernel weight function to estimate the effect of receiving
 punishments at the threshold on recidivism. For sensitivity analyses,
-the models are re-estimated using second-order polynomials and other
-kernel functions (universal and rectangular). The model is specified by
-the following function:
+the models are re-estimated using second-order polynomials and triangle
+kernel function). The model is specified by the following function:
 
 \begin{equation}
   \label{eqn:model}
-  R_i = \alpha + \beta_1 DUI_i + \beta_2 BAC_i + \beta_3 DUI_i \times BAC_i + \epsilon_i
+  R_i = \alpha + \beta_1 DUI_i + \beta_2 BAC_i + \beta_3 DUI_i \times BAC_i + \tau Z_i + \epsilon_i
 \end{equation}
 
 where the variable \(DUI_i\) is an indicator of whether BAC is above the
-0.08 threshold, \(BAC_i\) is the measure of BAC level, and \(R_i\) is an
-indicator of recidivism. The variable \(BAC_i\) in the model is centered
-around the threshold value of 0.08.
+0.08 threshold, \(BAC_i\) is the measure of BAC level, \(R_i\) is an
+indicator of recidivism, and \(Z_i\) is a vector of control variables.
+The variable \(BAC_i\) in the model is centered around the threshold
+value of 0.08 so that the coefficients directly reflect the estimates of
+the effect.
 
-\hypertarget{inclusion-of-covariates}{%
-\subsection{Inclusion of covariates}\label{inclusion-of-covariates}}
+\hypertarget{inclusion-of-control-variables}{%
+\subsection{Inclusion of control
+variables}\label{inclusion-of-control-variables}}
 
 In order to determine whether any covariates should be included in the
 model, I run preliminary analyses on the effect of receiving punishments
@@ -251,27 +253,27 @@ models to improve the estimation precision of the effects of receiving
 punishments at the threshold on recidivism.
 
 \begingroup
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.3}
 
 \begin{table}
 
-\caption{Regression Discontinuity Estimates of the Effect of Receiving Punishments at the Threshold on Predetermined Characteristics}
+\caption{Regression Discontinuity Estimates of the Effect of Receiving Punishments at the 0.08 BAC Threshold on Predetermined Characteristics}
 \label{tab:covariate}
 \centering
 \begin{threeparttable}
-\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{5em}>{\centering\arraybackslash}p{5em}>{\centering\arraybackslash}p{5em}>{\centering\arraybackslash}p{5em}}
+\begin{tabular}[t]{l>{\centering\arraybackslash}p{5em}>{\centering\arraybackslash}p{5em}>{\centering\arraybackslash}p{5em}>{\centering\arraybackslash}p{5em}}
 \toprule
   & Male & White & Age & Accident\\
 \midrule
 \textit{DUI} & 0.006 & 0.006 & –0.141 & –0.003\\
  & (0.006) & (0.005) & (0.164) & (0.004)\\
-Mean (at 0.079) & 0.768 & 0.852 & –0.003 & 28.5\\
-Numb. of Obs. & 89,967 & 89,967 & 89,967 & 89,967\\
+Mean & 0.784 & 0.846 & 0.085 & 33.99\\
+Num. of Obs. & 89,967 & 89,967 & 89,967 & 89,967\\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}
 \small
-\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the threshold on four predetermined characteristics. All models use a bandwidth of 0.05 and a universal kernel weight function. Heteroscedasticity-robust standard errors are in parentheses. $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
+\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on four predetermined characteristics. All models use a bandwidth of 0.05 and a rectangular kernel weight function. Counterfactual predictions of mean recidivism is calculated at the 0.079 BAC threshold. Heteroscedasticity-robust standard errors are in parentheses. $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -280,6 +282,60 @@ Numb. of Obs. & 89,967 & 89,967 & 89,967 & 89,967\\
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
+
+\hypertarget{the-effect-of-punishments-on-recidivism}{%
+\subsection{The Effect of Punishments on
+Recidivism}\label{the-effect-of-punishments-on-recidivism}}
+
+Table \ref{tab:main} reports the estimated of receiving punishments at
+the threshold on recidivism. Local linear regression model with a
+rectangular kernel weight function gives the estimate that receiving
+punishments at the 0.08 BAC threshold decreases recidivism by 2.4
+percentage points, which is statistically significant at the alpha level
+of 0.01. Local second-order polynomial with a rectangular kernel weight
+function gives an estimate of a decrease in recidivism by 1.4 percentage
+points, which is statistically significant at the alpha level of 0.05.
+These estimates are consistent across both bandwidths and across models
+with different types of kernel functions.
+
+\begingroup
+\renewcommand{\arraystretch}{1.1}
+
+\begin{table}
+
+\caption{Regression Discontinuity Estimates of the Effect of Receiving Punishments at the 0.08 BAC Threshold on Recidivism}
+\label{tab:main}
+\centering
+\begin{threeparttable}
+\begin{tabular}[t]{l>{\centering\arraybackslash}p{8em}>{\centering\arraybackslash}p{8em}>{\centering\arraybackslash}p{8em}>{\centering\arraybackslash}p{8em}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Rectangular kernel} & \multicolumn{2}{c}{Triangular kernel} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+  & Linear & Quadratic & Linear & Quadratic\\
+\midrule
+\multicolumn{5}{l}{\textit{DUI $\in$ [0.03, 0.13]}} \\
+\textit{DUI} & –0.024*** & –0.014** & –0.020*** & –0.014**\\
+ & (0.004) & (0.006) & (0.005) & (0.006)\\
+Mean & 0.104 & 0.099 & 0.100 & 0.099\\
+Controls & Yes & Yes & Yes & Yes\\
+Num. of Obs. & 89,967 & 89,967 & 89,967 & 89,967\\
+\addlinespace
+\multicolumn{5}{l}{\textit{DUI $\in$ [0.055, 0.105]}} \\
+\textit{DUI} & –0.021*** & –0.014* & –0.018*** & –0.016*\\
+ & (0.006) & (0.008) & (0.006) & (0.009)\\
+Mean & 0.101 & 0.098 & 0.101 & 0.100\\
+Controls & Yes & Yes & Yes & Yes\\
+Num. of Obs. & 46,957 & 46,957 & 46,957 & 46,957\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on recidivism. The upper panel presents estimates based on a 0.05 bandwidth, and the lower panel presents estimates based on a 0.025 bandwith. The table includes results from both linear and quadratic models, with either a rectangular or a triangular kernel weight function. Controls include individuals' gender, race, age, and an indicator of whether the BAC test was conducted in a traffic accident. Counterfactual predictions of mean recidivism are calculated at the 0.079 BAC threshold and mean age of the respective populations, averaging over individuals' gender and race, as well as the BAC testing being conducted in an accident. Heteroscedasticity-robust standard errors are in parentheses. $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\endgroup
 
 \hypertarget{critique-and-extension}{%
 \section{Critique and Extension}\label{critique-and-extension}}

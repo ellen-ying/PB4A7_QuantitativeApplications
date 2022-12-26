@@ -16,7 +16,7 @@ dat_bandwidth_0.05 <- bac_data %>% filter(abs(bac1_ctd) <= 0.05)
 # linear regression
 linear_a <- 
   dat_bandwidth_0.05 %>% 
-  lm(recidivism ~ dui*bac1 + white + male + acc + aged,
+  lm(recidivism ~ dui*bac1_ctd + white + male + acc + aged,
      data = .)
 summaryR.lm(linear_a, type = "hc1")
 ```
@@ -38,23 +38,23 @@ summaryR.lm(linear_a, type = "hc1")
 
     ## 
     ## Call:
-    ## lm(formula = recidivism ~ dui * bac1 + white + male + acc + aged, 
-    ##     data = .)
+    ## lm(formula = recidivism ~ dui * bac1_ctd + white + male + acc + 
+    ##     aged, data = .)
     ## 
     ## Residuals:
     ##      Min       1Q   Median       3Q      Max 
     ## -0.14367 -0.11932 -0.10644 -0.08617  0.96543 
     ## 
     ## Coefficients:
-    ##               Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  1.094e-01  1.314e-02   8.320  < 2e-16 ***
-    ## dui         -5.907e-02  1.521e-02  -3.883 0.000103 ***
-    ## bac1        -4.287e-02  1.866e-01  -0.230 0.818332    
-    ## white        1.622e-02  2.802e-03   5.789  7.1e-09 ***
-    ## male         3.318e-02  2.329e-03  14.247  < 2e-16 ***
-    ## acc          4.210e-03  3.452e-03   1.219 0.222665    
-    ## aged        -8.537e-04  8.497e-05 -10.047  < 2e-16 ***
-    ## dui:bac1     4.381e-01  2.038e-01   2.150 0.031587 *  
+    ##                Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)   1.059e-01  5.355e-03  19.780  < 2e-16 ***
+    ## dui          -2.402e-02  4.353e-03  -5.518 3.44e-08 ***
+    ## bac1_ctd     -4.287e-02  1.866e-01  -0.230   0.8183    
+    ## white         1.622e-02  2.802e-03   5.789 7.10e-09 ***
+    ## male          3.318e-02  2.329e-03  14.247  < 2e-16 ***
+    ## acc           4.210e-03  3.452e-03   1.219   0.2227    
+    ## aged         -8.537e-04  8.497e-05 -10.047  < 2e-16 ***
+    ## dui:bac1_ctd  4.381e-01  2.038e-01   2.150   0.0316 *  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -68,32 +68,32 @@ summaryR.lm(linear_a, type = "hc1")
 # quadratic model
 qua_a <- 
   dat_bandwidth_0.05 %>% 
-  lm(recidivism ~ dui*(bac1 + bac1_sq) + white + male + acc + aged,
+  lm(recidivism ~ dui*(bac1_ctd + bac1_ctd_sq) + white + male + acc + aged,
      data = .)
 summaryR.lm(qua_a, type = "hc1")
 ```
 
     ## 
     ## Call:
-    ## lm(formula = recidivism ~ dui * (bac1 + bac1_sq) + white + male + 
-    ##     acc + aged, data = .)
+    ## lm(formula = recidivism ~ dui * (bac1_ctd + bac1_ctd_sq) + white + 
+    ##     male + acc + aged, data = .)
     ## 
     ## Residuals:
     ##      Min       1Q   Median       3Q      Max 
     ## -0.14704 -0.11889 -0.10633 -0.08583  0.96541 
     ## 
     ## Coefficients:
-    ##               Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  2.617e-02  4.732e-02   0.553   0.5802    
-    ## dui          1.130e-01  8.426e-02   1.341   0.1798    
-    ## bac1         2.902e+00  1.637e+00   1.773   0.0763 .  
-    ## bac1_sq     -2.472e+01  1.374e+01  -1.799   0.0720 .  
-    ## white        1.622e-02  2.802e-03   5.790 7.08e-09 ***
-    ## male         3.321e-02  2.329e-03  14.262  < 2e-16 ***
-    ## acc          4.184e-03  3.451e-03   1.212   0.2254    
-    ## aged        -8.538e-04  8.497e-05 -10.048  < 2e-16 ***
-    ## dui:bac1    -4.210e+00  2.111e+00  -1.994   0.0461 *  
-    ## dui:bac1_sq  3.273e+01  1.510e+01   2.167   0.0302 *  
+    ##                   Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)      1.001e-01  6.271e-03  15.970  < 2e-16 ***
+    ## dui             -1.432e-02  6.222e-03  -2.302   0.0213 *  
+    ## bac1_ctd        -1.053e+00  6.012e-01  -1.751   0.0800 .  
+    ## bac1_ctd_sq     -2.472e+01  1.374e+01  -1.799   0.0720 .  
+    ## white            1.622e-02  2.802e-03   5.790 7.08e-09 ***
+    ## male             3.321e-02  2.329e-03  14.262  < 2e-16 ***
+    ## acc              4.184e-03  3.451e-03   1.212   0.2254    
+    ## aged            -8.538e-04  8.497e-05 -10.048  < 2e-16 ***
+    ## dui:bac1_ctd     1.027e+00  6.890e-01   1.490   0.1362    
+    ## dui:bac1_ctd_sq  3.273e+01  1.510e+01   2.167   0.0302 *  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -110,30 +110,30 @@ dat_bandwidth_0.025 <- bac_data %>% filter(abs(bac1_ctd) <= 0.025)
 # linear regression
 linear_b <- 
   dat_bandwidth_0.025 %>% 
-  lm(recidivism ~ dui*bac1 + white + male + acc + aged,
+  lm(recidivism ~ dui*bac1_ctd + white + male + acc + aged,
      data = .)
 summaryR.lm(linear_b, type = "hc1")
 ```
 
     ## 
     ## Call:
-    ## lm(formula = recidivism ~ dui * bac1 + white + male + acc + aged, 
-    ##     data = .)
+    ## lm(formula = recidivism ~ dui * bac1_ctd + white + male + acc + 
+    ##     aged, data = .)
     ## 
     ## Residuals:
     ##      Min       1Q   Median       3Q      Max 
     ## -0.14392 -0.11723 -0.10479 -0.08299  0.96339 
     ## 
     ## Coefficients:
-    ##               Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  0.1132520  0.0277550   4.080 4.50e-05 ***
-    ## dui         -0.0643427  0.0350143  -1.838   0.0661 .  
-    ## bac1        -0.1955582  0.3825057  -0.511   0.6092    
-    ## white        0.0175942  0.0038129   4.614 3.95e-06 ***
-    ## male         0.0357191  0.0031666  11.280  < 2e-16 ***
-    ## acc          0.0042208  0.0049681   0.850   0.3956    
-    ## aged        -0.0007579  0.0001154  -6.570 5.10e-11 ***
-    ## dui:bac1     0.5470655  0.4493585   1.217   0.2234    
+    ##                Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)   0.0976074  0.0069612  14.022  < 2e-16 ***
+    ## dui          -0.0205774  0.0057465  -3.581 0.000343 ***
+    ## bac1_ctd     -0.1955582  0.3825057  -0.511 0.609175    
+    ## white         0.0175942  0.0038129   4.614 3.95e-06 ***
+    ## male          0.0357191  0.0031666  11.280  < 2e-16 ***
+    ## acc           0.0042208  0.0049681   0.850 0.395565    
+    ## aged         -0.0007579  0.0001154  -6.570 5.10e-11 ***
+    ## dui:bac1_ctd  0.5470655  0.4493585   1.217 0.223444    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -147,32 +147,32 @@ summaryR.lm(linear_b, type = "hc1")
 # quadratic model
 qua_b <- 
   dat_bandwidth_0.025 %>% 
-  lm(recidivism ~ dui*(bac1 + bac1_sq) + white + male + acc + aged,
+  lm(recidivism ~ dui*(bac1_ctd + bac1_ctd_sq) + white + male + acc + aged,
      data = .)
 summaryR.lm(qua_b, type = "hc1")
 ```
 
     ## 
     ## Call:
-    ## lm(formula = recidivism ~ dui * (bac1 + bac1_sq) + white + male + 
-    ##     acc + aged, data = .)
+    ## lm(formula = recidivism ~ dui * (bac1_ctd + bac1_ctd_sq) + white + 
+    ##     male + acc + aged, data = .)
     ## 
     ## Residuals:
     ##      Min       1Q   Median       3Q      Max 
     ## -0.14383 -0.11690 -0.10477 -0.08279  0.96308 
     ## 
     ## Coefficients:
-    ##               Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept) -1.042e-01  2.783e-01  -0.375    0.708    
-    ## dui          3.714e-01  4.220e-01   0.880    0.379    
-    ## bac1         6.167e+00  8.120e+00   0.760    0.448    
-    ## bac1_sq     -4.606e+01  5.875e+01  -0.784    0.433    
-    ## white        1.759e-02  3.813e-03   4.614 3.96e-06 ***
-    ## male         3.575e-02  3.167e-03  11.291  < 2e-16 ***
-    ## acc          4.233e-03  4.968e-03   0.852    0.394    
-    ## aged        -7.582e-04  1.154e-04  -6.571 5.06e-11 ***
-    ## dui:bac1    -1.052e+01  1.061e+01  -0.992    0.321    
-    ## dui:bac1_sq  7.127e+01  6.921e+01   1.030    0.303    
+    ##                   Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)      9.431e-02  8.038e-03  11.733  < 2e-16 ***
+    ## dui             -1.410e-02  8.460e-03  -1.667   0.0956 .  
+    ## bac1_ctd        -1.203e+00  1.344e+00  -0.895   0.3707    
+    ## bac1_ctd_sq     -4.606e+01  5.875e+01  -0.784   0.4330    
+    ## white            1.759e-02  3.813e-03   4.614 3.96e-06 ***
+    ## male             3.575e-02  3.167e-03  11.291  < 2e-16 ***
+    ## acc              4.233e-03  4.968e-03   0.852   0.3941    
+    ## aged            -7.582e-04  1.154e-04  -6.571 5.06e-11 ***
+    ## dui:bac1_ctd     8.822e-01  1.675e+00   0.527   0.5984    
+    ## dui:bac1_ctd_sq  7.127e+01  6.921e+01   1.030   0.3031    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -182,11 +182,187 @@ summaryR.lm(qua_b, type = "hc1")
     ## 
     ## Note: Heteroscedasticity-consistent standard errors using adjustment hc1
 
-The linear model estimates indicate that receiving punishment decreased
-the rate of recidivism by 5.91 percentage point (6.4 percentage when
-using 0.025 bandwidth). The quadratic model estimates indicate that
-receiving punishment decreased the rate of recidivism by 11.3 percentage
-point (37.1 percentage when using 0.025 bandwidth).
+The linear model estimates using a rectangular kernel weight indicate
+that receiving punishment decreased the rate of recidivism by 2.40
+percentage point (2.06 percentage when using 0.025 bandwidth). The
+quadratic model estimates indicate that receiving punishment decreased
+the rate of recidivism by 1.43 percentage point (1.41 percentage when
+using 0.025 bandwidth).
+
+### Sensitivity analysis
+
+For sensitivity analysis, triangular kernel function was used to weight
+observations.
+
+``` r
+# Add a triangular kernel weight
+tri_weight <- function(x, h) {
+    # To start at a weight of 0 at x = 0, and impose a bandwidth of h, 
+    # we need a "slope" of -1/h, and to go in either direction use the absolute value
+    w <- 1 - abs(x)/h
+    # if further away than h, the weight is 0, not negative
+    w <- ifelse(w < 0, 0, w)
+    return(w)
+}
+
+# linear regression with triangular weight
+linear_a_tri <- 
+  dat_bandwidth_0.05 %>% 
+  lm(recidivism ~ dui*bac1_ctd + white + male + acc + aged,
+     data = ., weight = tri_weight(bac1_ctd, h = 0.05))
+summaryR.lm(linear_a_tri, type = "hc1")
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = recidivism ~ dui * bac1_ctd + white + male + acc + 
+    ##     aged, data = ., weights = tri_weight(bac1_ctd, h = 0.05))
+    ## 
+    ## Weighted Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -0.13942 -0.08932 -0.06735 -0.04098  0.93937 
+    ## 
+    ## Coefficients:
+    ##                Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)   9.817e-02  5.888e-03  16.671  < 2e-16 ***
+    ## dui          -2.013e-02  4.704e-03  -4.278 1.88e-05 ***
+    ## bac1_ctd     -2.620e-01  2.301e-01  -1.139   0.2549    
+    ## white         1.757e-02  3.180e-03   5.527 3.27e-08 ***
+    ## male          3.536e-02  2.640e-03  13.392  < 2e-16 ***
+    ## acc           4.688e-03  4.051e-03   1.157   0.2472    
+    ## aged         -7.792e-04  9.704e-05  -8.030 9.88e-16 ***
+    ## dui:bac1_ctd  5.718e-01  2.522e-01   2.267   0.0234 *  
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.2186 on 89959 degrees of freedom
+    ## Multiple R-squared:  0.003982,   Adjusted R-squared:  0.003904 
+    ## F-statistic: 42.35 on 7 and 89959 DF,  p-value: < 2.2e-16
+    ## 
+    ## Note: Heteroscedasticity-consistent standard errors using adjustment hc1
+
+``` r
+# quadratic model
+qua_a_tri <- 
+  dat_bandwidth_0.05 %>% 
+  lm(recidivism ~ dui*(bac1_ctd + bac1_ctd_sq) + white + male + acc + aged,
+     data = ., weight = tri_weight(bac1_ctd, h = 0.05))
+summaryR.lm(qua_a, type = "hc1")
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = recidivism ~ dui * (bac1_ctd + bac1_ctd_sq) + white + 
+    ##     male + acc + aged, data = .)
+    ## 
+    ## Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -0.14704 -0.11889 -0.10633 -0.08583  0.96541 
+    ## 
+    ## Coefficients:
+    ##                   Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)      1.001e-01  6.271e-03  15.970  < 2e-16 ***
+    ## dui             -1.432e-02  6.222e-03  -2.302   0.0213 *  
+    ## bac1_ctd        -1.053e+00  6.012e-01  -1.751   0.0800 .  
+    ## bac1_ctd_sq     -2.472e+01  1.374e+01  -1.799   0.0720 .  
+    ## white            1.622e-02  2.802e-03   5.790 7.08e-09 ***
+    ## male             3.321e-02  2.329e-03  14.262  < 2e-16 ***
+    ## acc              4.184e-03  3.451e-03   1.212   0.2254    
+    ## aged            -8.538e-04  8.497e-05 -10.048  < 2e-16 ***
+    ## dui:bac1_ctd     1.027e+00  6.890e-01   1.490   0.1362    
+    ## dui:bac1_ctd_sq  3.273e+01  1.510e+01   2.167   0.0302 *  
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.3085 on 89957 degrees of freedom
+    ## Multiple R-squared:  0.003697,   Adjusted R-squared:  0.003598 
+    ## F-statistic: 40.23 on 9 and 89957 DF,  p-value: < 2.2e-16
+    ## 
+    ## Note: Heteroscedasticity-consistent standard errors using adjustment hc1
+
+``` r
+# linear regression
+linear_b_tri <- 
+  dat_bandwidth_0.025 %>% 
+  lm(recidivism ~ dui*bac1_ctd + white + male + acc + aged,
+     data = ., weight = tri_weight(bac1_ctd, h = 0.025))
+summaryR.lm(linear_b_tri, type = "hc1")
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = recidivism ~ dui * bac1_ctd + white + male + acc + 
+    ##     aged, data = ., weights = tri_weight(bac1_ctd, h = 0.025))
+    ## 
+    ## Weighted Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -0.14275 -0.08927 -0.06551 -0.03863  0.94056 
+    ## 
+    ## Coefficients:
+    ##                Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)   0.0914390  0.0077418  11.811  < 2e-16 ***
+    ## dui          -0.0179853  0.0062481  -2.879    0.004 ** 
+    ## bac1_ctd     -0.3921942  0.4620470  -0.849    0.396    
+    ## white         0.0193341  0.0043522   4.442 8.92e-06 ***
+    ## male          0.0374129  0.0036314  10.303  < 2e-16 ***
+    ## acc           0.0094955  0.0059535   1.595    0.111    
+    ## aged         -0.0007111  0.0001346  -5.285 1.26e-07 ***
+    ## dui:bac1_ctd  0.6035182  0.5542984   1.089    0.276    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.217 on 46949 degrees of freedom
+    ## Multiple R-squared:  0.004392,   Adjusted R-squared:  0.004244 
+    ## F-statistic: 24.72 on 7 and 46949 DF,  p-value: < 2.2e-16
+    ## 
+    ## Note: Heteroscedasticity-consistent standard errors using adjustment hc1
+
+``` r
+# quadratic model
+qua_b_tri <- 
+  dat_bandwidth_0.025 %>% 
+  lm(recidivism ~ dui*(bac1_ctd + bac1_ctd_sq) + white + male + acc + aged,
+     data = ., weight = tri_weight(bac1_ctd, h = 0.025))
+summaryR.lm(qua_b_tri, type = "hc1")
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = recidivism ~ dui * (bac1_ctd + bac1_ctd_sq) + white + 
+    ##     male + acc + aged, data = ., weights = tri_weight(bac1_ctd, 
+    ##     h = 0.025))
+    ## 
+    ## Weighted Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -0.14213 -0.08916 -0.06532 -0.03891  0.94118 
+    ## 
+    ## Coefficients:
+    ##                   Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)      9.084e-02  8.781e-03  10.345  < 2e-16 ***
+    ## dui             -1.570e-02  9.035e-03  -1.738   0.0823 .  
+    ## bac1_ctd        -6.447e-01  1.541e+00  -0.418   0.6757    
+    ## bac1_ctd_sq     -1.442e+01  7.310e+01  -0.197   0.8437    
+    ## white            1.933e-02  4.352e-03   4.441 8.98e-06 ***
+    ## male             3.741e-02  3.632e-03  10.302  < 2e-16 ***
+    ## acc              9.496e-03  5.953e-03   1.595   0.1107    
+    ## aged            -7.114e-04  1.346e-04  -5.287 1.25e-07 ***
+    ## dui:bac1_ctd     3.904e-01  1.973e+00   0.198   0.8431    
+    ## dui:bac1_ctd_sq  3.638e+01  8.857e+01   0.411   0.6813    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.217 on 46947 degrees of freedom
+    ## Multiple R-squared:  0.004397,   Adjusted R-squared:  0.004206 
+    ## F-statistic: 19.45 on 9 and 46947 DF,  p-value: < 2.2e-16
+    ## 
+    ## Note: Heteroscedasticity-consistent standard errors using adjustment hc1
+
+The linear model estimates using a rectangular kernel weight indicate
+that receiving punishment decreased the rate of recidivism by 2.01
+percentage point (1.80 percentage when using 0.025 bandwidth). The
+quadratic model estimates indicate that receiving punishment decreased
+the rate of recidivism by 1.43 percentage point (1.57 percentage when
+using 0.025 bandwidth).
 
 ## Donut hole regression
 
@@ -382,7 +558,7 @@ with(dat_bandwidth_0.05,
             y.label = "Recidivism"))
 ```
 
-![](20221215_main_analysis_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](20221215_main_analysis_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ## Notes for improvement
 
