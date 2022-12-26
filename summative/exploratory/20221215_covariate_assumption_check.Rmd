@@ -33,29 +33,30 @@ We will check the assumptions that observed covariates didn't have a jump at the
 
 ```{r}
 # analysis officially given in the do file
+# bac1 changed to centered value of bac1
 # get the data within the bandwidth
 dat_bandwidth_0.05 <- bac_data %>% filter(abs(bac1_ctd) <= 0.05)
 
 # check being white
-white_rdd <- dat_bandwidth_0.05 %>% lm(white ~ dui*bac1, data = .)
+white_rdd <- dat_bandwidth_0.05 %>% lm(white ~ dui*bac1_ctd, data = .)
 
 # use a customary function to calculate robust SEs
 summaryR.lm(white_rdd, type = "hc1") 
 
 # check being male
-male_rdd <- dat_bandwidth_0.05 %>% lm(male ~ dui*bac1, data = .)
+male_rdd <- dat_bandwidth_0.05 %>% lm(male ~ dui*bac1_ctd, data = .)
 summaryR.lm(male_rdd, type = "hc1") 
 
 # check accident
-accident_rdd <- dat_bandwidth_0.05 %>% lm(acc ~ dui*bac1, data = .)
+accident_rdd <- dat_bandwidth_0.05 %>% lm(acc ~ dui*bac1_ctd, data = .)
 summaryR.lm(accident_rdd, type = "hc1") 
 
 # check age
-age_rdd <- dat_bandwidth_0.05 %>% lm(aged ~ dui*bac1, data = .)
+age_rdd <- dat_bandwidth_0.05 %>% lm(aged ~ dui*bac1_ctd, data = .)
 summaryR.lm(age_rdd, type = "hc1") 
 ```
 
-There is no evidence that being white or being male were different between people who were just below and those just above the cutoff point. However, having accident was 15.44 percentage point lower for people above the cutoff point than those below, and people above the cutoff point were 6.22 years younger on average than those below.
+There is no evidence that the three demographic characteristics or accident rate were different between people who were just below and those just above the cutoff point. 
 
 ## Notes for future improvement
 

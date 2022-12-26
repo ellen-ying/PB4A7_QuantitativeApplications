@@ -8,11 +8,12 @@ jump at the cutoff point.
 
 ``` r
 # analysis officially given in the do file
+# bac1 changed to centered value of bac1
 # get the data within the bandwidth
 dat_bandwidth_0.05 <- bac_data %>% filter(abs(bac1_ctd) <= 0.05)
 
 # check being white
-white_rdd <- dat_bandwidth_0.05 %>% lm(white ~ dui*bac1, data = .)
+white_rdd <- dat_bandwidth_0.05 %>% lm(white ~ dui*bac1_ctd, data = .)
 
 # use a customary function to calculate robust SEs
 summaryR.lm(white_rdd, type = "hc1") 
@@ -35,18 +36,18 @@ summaryR.lm(white_rdd, type = "hc1")
 
     ## 
     ## Call:
-    ## lm(formula = white ~ dui * bac1, data = .)
+    ## lm(formula = white ~ dui * bac1_ctd, data = .)
     ## 
     ## Residuals:
     ##     Min      1Q  Median      3Q     Max 
     ## -0.8567  0.1439  0.1455  0.1473  0.1576 
     ## 
     ## Coefficients:
-    ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept) 0.839975   0.014252  58.936   <2e-16 ***
-    ## dui         0.004454   0.017515   0.254    0.799    
-    ## bac1        0.078754   0.214216   0.368    0.713    
-    ## dui:bac1    0.015618   0.233955   0.067    0.947    
+    ##              Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)  0.846275   0.004090 206.926   <2e-16 ***
+    ## dui          0.005704   0.005008   1.139    0.255    
+    ## bac1_ctd     0.078754   0.214216   0.368    0.713    
+    ## dui:bac1_ctd 0.015618   0.233955   0.067    0.947    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -58,24 +59,24 @@ summaryR.lm(white_rdd, type = "hc1")
 
 ``` r
 # check being male
-male_rdd <- dat_bandwidth_0.05 %>% lm(male ~ dui*bac1, data = .)
+male_rdd <- dat_bandwidth_0.05 %>% lm(male ~ dui*bac1_ctd, data = .)
 summaryR.lm(male_rdd, type = "hc1") 
 ```
 
     ## 
     ## Call:
-    ## lm(formula = male ~ dui * bac1, data = .)
+    ## lm(formula = male ~ dui * bac1_ctd, data = .)
     ## 
     ## Residuals:
     ##     Min      1Q  Median      3Q     Max 
     ## -0.7953  0.2049  0.2067  0.2085  0.2158 
     ## 
     ## Coefficients:
-    ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  0.80103    0.01592  50.324   <2e-16 ***
-    ## dui         -0.01838    0.01979  -0.929    0.353    
-    ## bac1        -0.20997    0.23978  -0.876    0.381    
-    ## dui:bac1     0.30707    0.26324   1.167    0.243    
+    ##               Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)   0.784236   0.004630 169.391   <2e-16 ***
+    ## dui           0.006184   0.005704   1.084    0.278    
+    ## bac1_ctd     -0.209970   0.239779  -0.876    0.381    
+    ## dui:bac1_ctd  0.307072   0.263239   1.167    0.243    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -87,24 +88,24 @@ summaryR.lm(male_rdd, type = "hc1")
 
 ``` r
 # check accident
-accident_rdd <- dat_bandwidth_0.05 %>% lm(acc ~ dui*bac1, data = .)
+accident_rdd <- dat_bandwidth_0.05 %>% lm(acc ~ dui*bac1_ctd, data = .)
 summaryR.lm(accident_rdd, type = "hc1") 
 ```
 
     ## 
     ## Call:
-    ## lm(formula = acc ~ dui * bac1, data = .)
+    ## lm(formula = acc ~ dui * bac1_ctd, data = .)
     ## 
     ## Residuals:
     ##      Min       1Q   Median       3Q      Max 
     ## -0.13713 -0.10940 -0.09831 -0.08801  0.91913 
     ## 
     ## Coefficients:
-    ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  0.17110    0.01260  13.575  < 2e-16 ***
-    ## dui         -0.15442    0.01527 -10.113  < 2e-16 ***
-    ## bac1        -1.09590    0.18633  -5.882 4.08e-09 ***
-    ## dui:bac1     1.88836    0.20306   9.300  < 2e-16 ***
+    ##               Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)   0.083431   0.003297  25.308  < 2e-16 ***
+    ## dui          -0.003350   0.004062  -0.825    0.409    
+    ## bac1_ctd     -1.095895   0.186328  -5.882 4.08e-09 ***
+    ## dui:bac1_ctd  1.888365   0.203057   9.300  < 2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -116,24 +117,24 @@ summaryR.lm(accident_rdd, type = "hc1")
 
 ``` r
 # check age
-age_rdd <- dat_bandwidth_0.05 %>% lm(aged ~ dui*bac1, data = .)
+age_rdd <- dat_bandwidth_0.05 %>% lm(aged ~ dui*bac1_ctd, data = .)
 summaryR.lm(age_rdd, type = "hc1") 
 ```
 
     ## 
     ## Call:
-    ## lm(formula = aged ~ dui * bac1, data = .)
+    ## lm(formula = aged ~ dui * bac1_ctd, data = .)
     ## 
     ## Residuals:
     ##     Min      1Q  Median      3Q     Max 
     ## -16.309  -9.896  -2.972   7.665  46.207 
     ## 
     ## Coefficients:
-    ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  39.4530     0.4831  81.666   <2e-16 ***
-    ## dui          -6.2244     0.5861 -10.619   <2e-16 ***
-    ## bac1        -69.1637     7.2203  -9.579   <2e-16 ***
-    ## dui:bac1     76.0493     7.8440   9.695   <2e-16 ***
+    ##              Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)   33.9199     0.1346 251.947   <2e-16 ***
+    ## dui           -0.1405     0.1644  -0.855    0.393    
+    ## bac1_ctd     -69.1637     7.2203  -9.579   <2e-16 ***
+    ## dui:bac1_ctd  76.0493     7.8440   9.695   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -143,11 +144,9 @@ summaryR.lm(age_rdd, type = "hc1")
     ## 
     ## Note: Heteroscedasticity-consistent standard errors using adjustment hc1
 
-There is no evidence that being white or being male were different
-between people who were just below and those just above the cutoff
-point. However, having accident was 15.44 percentage point lower for
-people above the cutoff point than those below, and people above the
-cutoff point were 6.22 years younger on average than those below.
+There is no evidence that the three demographic characteristics or
+accident rate were different between people who were just below and
+those just above the cutoff point.
 
 ## Notes for future improvement
 
