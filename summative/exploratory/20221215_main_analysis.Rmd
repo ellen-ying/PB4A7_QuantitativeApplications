@@ -137,7 +137,7 @@ dat_bandwidth_0.05 <-
 linear_a_donut <- 
   dat_bandwidth_0.05 %>% 
   filter(donut == 0) %>% 
-  lm(recidivism ~ dui*bac1 + white + male + acc + aged,
+  lm(recidivism ~ dui*bac1_ctd + white + male + acc + aged,
      data = .)
 summaryR.lm(linear_a_donut, type = "hc1")
 
@@ -145,16 +145,68 @@ summaryR.lm(linear_a_donut, type = "hc1")
 dat_bandwidth_0.025 <- 
   dat_bandwidth_0.025 %>% mutate(donut = ifelse(abs(bac1_ctd) <= 0.001, 1, 0))
 
-# linear regression
 linear_b_donut <- 
   dat_bandwidth_0.025 %>% 
   filter(donut == 0) %>% 
-  lm(recidivism ~ dui*bac1 + white + male + acc + aged,
+  lm(recidivism ~ dui*bac1_ctd + white + male + acc + aged,
      data = .)
 summaryR.lm(linear_b_donut, type = "hc1")
+
+# quadratic model
+qua_a_donut <- 
+  dat_bandwidth_0.05 %>% 
+  filter(donut == 0) %>% 
+  lm(recidivism ~ dui*(bac1_ctd + bac1_ctd_sq) + white + male + acc + aged,
+     data = .)
+summaryR.lm(qua_a_donut, type = "hc1")
+
+# narrower bandwidth
+qua_b_donut <- 
+  dat_bandwidth_0.025 %>% 
+  filter(donut == 0) %>% 
+  lm(recidivism ~ dui*(bac1_ctd + bac1_ctd_sq) + white + male + acc + aged,
+     data = .)
+summaryR.lm(qua_b_donut, type = "hc1")
 ```
 
-The donut hole regressions indicate that receiving punishment decreased the rate of recidivism by 5.57 percentage point (and 5.62 pp using 0.025 bandwidth).
+The donut hole linear regression model estimates using a rectangular kernel weight indicate that receiving punishment decreased the rate of recidivism by 2.57 percentage point (2.25 percentage when using 0.025 bandwidth). The quadratic model estimates indicate that receiving punishment decreased the rate of recidivism by 1.44 percentage point (1.51 percentage when using 0.025 bandwidth).
+
+
+Replicate with a triangular kernel.
+
+```{r}
+# linear regression
+linear_a_donut_tri <- 
+  dat_bandwidth_0.05 %>% 
+  filter(donut == 0) %>% 
+  lm(recidivism ~ dui*bac1_ctd + white + male + acc + aged,
+     data = ., weight = tri_weight(bac1_ctd, h = 0.05))
+summaryR.lm(linear_a_donut_tri, type = "hc1")
+
+linear_b_donut_tri <- 
+  dat_bandwidth_0.025 %>% 
+  filter(donut == 0) %>% 
+  lm(recidivism ~ dui*bac1_ctd + white + male + acc + aged,
+     data = ., weight = tri_weight(bac1_ctd, h = 0.025))
+summaryR.lm(linear_b_donut_tri, type = "hc1")
+
+# quadratic model
+qua_a_donut_tri <- 
+  dat_bandwidth_0.05 %>% 
+  filter(donut == 0) %>% 
+  lm(recidivism ~ dui*(bac1_ctd + bac1_ctd_sq) + white + male + acc + aged,
+     data = ., weight = tri_weight(bac1_ctd, h = 0.05))
+summaryR.lm(qua_a_donut_tri, type = "hc1")
+
+qua_b_donut_tri <- 
+  dat_bandwidth_0.025 %>% 
+  filter(donut == 0) %>% 
+  lm(recidivism ~ dui*(bac1_ctd + bac1_ctd_sq) + white + male + acc + aged,
+     data = ., weight = tri_weight(bac1_ctd, h = 0.025))
+summaryR.lm(qua_b_donut_tri, type = "hc1")
+```
+
+The donut hole linear regression model estimates using a rectangular kernel weight indicate that receiving punishment decreased the rate of recidivism by 2.15 percentage point (2.00 percentage when using 0.025 bandwidth). The quadratic model estimates indicate that receiving punishment decreased the rate of recidivism by 1.80 percentage point (1.96 percentage when using 0.025 bandwidth).
 
 
 Use the package `rdrobust` to run the local polynomial regressions with kernel function and bias correction with a donut hole.

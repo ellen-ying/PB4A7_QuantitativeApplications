@@ -176,7 +176,7 @@ the distribution is continuous at 0.08 cannot be rejected at the alpha
 level of 0.05 (\emph{p} = 0.890). Therefore, there is no evidence for
 the existence of manipulation on the BAC level.
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.9\columnwidth]{../figures/bac_histogram_continuous.pdf}
   \caption{\textbf{Histogram of blood alcohol content as a continuous variable.} The blood alcohol content is plotted as a continuous variable with a bin width of 0.001, the precision used on the breathalysers. The y-axis represents the frequency of observations in each bin. The vertical black lines represent the two thresholds at 0.08 and 0.15.}
@@ -203,7 +203,7 @@ plotted by two bins, or if we treat BAC as discrete and give each value
 its own bin. \textbf{(consider using a simulation to justify this
 claim?)}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.9\columnwidth]{../figures/bac_histogram_discrete.pdf}
   \caption{\textbf{Histogram of blood alcohol content as a discrete variable.} The blood alcohol content is plotted as a discrete variable with a bin width of 0.001, the precision used on the breathalysers. The y-axis represents the frequency of observations in each bin. The vertical black lines represent the two thresholds at 0.08 and 0.15.}
@@ -287,12 +287,12 @@ Num. of Obs. & 89,967 & 89,967 & 89,967 & 89,967\\
 \subsection{The Effect of Punishments on
 Recidivism}\label{the-effect-of-punishments-on-recidivism}}
 
-Table \ref{tab:main} reports the estimated of receiving punishments at
-the threshold on recidivism. Local linear regression model with a
-rectangular kernel weight function gives the estimate that receiving
-punishments at the 0.08 BAC threshold decreases recidivism by 2.4
-percentage points, which is statistically significant at the alpha level
-of 0.01. Local second-order polynomial with a rectangular kernel weight
+Table \ref{tab:main} reports the estimated effect of receiving
+punishments at the threshold on recidivism. Local linear regression
+model with a rectangular kernel function gives the estimate that
+receiving punishments at the 0.08 BAC threshold decreases recidivism by
+2.4 percentage points, which is statistically significant at the alpha
+level of 0.01. Local second-order polynomial with a rectangular kernel
 function gives an estimate of a decrease in recidivism by 1.4 percentage
 points, which is statistically significant at the alpha level of 0.05.
 These estimates are consistent across both bandwidths and across models
@@ -330,15 +330,95 @@ Num. of Obs. & 46,957 & 46,957 & 46,957 & 46,957\\
 \end{tabular}
 \begin{tablenotes}
 \small
-\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on recidivism. The upper panel presents estimates based on a 0.05 bandwidth, and the lower panel presents estimates based on a 0.025 bandwith. The table includes results from both linear and quadratic models, with either a rectangular or a triangular kernel weight function. Controls include individuals' gender, race, age, and an indicator of whether the BAC test was conducted in a traffic accident. Counterfactual predictions of mean recidivism are calculated at the 0.079 BAC threshold and mean age of the respective populations, averaging over individuals' gender and race, as well as the BAC testing being conducted in an accident. Heteroscedasticity-robust standard errors are in parentheses. $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
+\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on recidivism. The upper panel presents estimates based on a 0.05 bandwidth, and the lower panel presents estimates based on a 0.025 bandwidth. The table includes results from both linear and quadratic models, with either a rectangular or a triangular kernel weight function. Controls include individuals' gender, race, age, and an indicator of whether the BAC test was conducted in a traffic accident. Counterfactual predictions of mean recidivism are calculated at the 0.079 BAC threshold and mean age of the respective populations, averaging over individuals' gender and race, as well as over whether the BAC testing was conducted in an accident. Heteroscedasticity-robust standard errors are in parentheses. $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 \endgroup
 
-\hypertarget{critique-and-extension}{%
-\section{Critique and Extension}\label{critique-and-extension}}
+\hypertarget{robustness}{%
+\subsection{Robustness}\label{robustness}}
+
+Since there seems to be non-random heaping in the current data (Figure
+\ref{fig:bac_hist_continuous}), this section will use donut regression
+discontinuity models to investigate the robustness of the results
+presented in the last section. Donut regression discontinuity models
+entirely drop the observations near the threshold. Under appropriate
+assumptions, they are effective in preventing a heap just at the
+threshold from biasing the estimates \textbf{(Barreca et al., 2011)}.
+
+For the present study, I drop the observations in the interval
+\(BAC \in [0.079, 0.081]\), and re-estimate local linear regression and
+quadratic models with either a rectangular or a triangular kernel weight
+function. It is worth stressing that robustness test using local
+polynomials is especially important in a donut regression discontinuity
+design. This is because a donut regression model gets rid of the very
+observations on which the estimates of local average effects rely upon.
+The estimates given by donut regression models are essentially based on
+models' extrapolation over the region of the donut \textbf{(Dowd, 2021)}
+and may be especially sensitive to the assumptions about the underlying
+functional form \textbf{(Consider justifying this using a simulation)}.
+Using polynomials with different orders can ensure the robustness of the
+results over different functional assumptions.
+
+The results from donust regreesion discontinuity models are presented in
+Table \ref{tab:donut}. According to the local linear regression model
+with a rectangular kernel function, receiving punishments at the
+threshold decreases recidivism by 2.6 percentage points and is
+statistically significant at the alpha level of 0.01. According to the
+local second-order polynomial with a rectangular kernel function,
+receiving punishments at the threshold decreases recidivism by 1.4
+percentage points and is statistically significant at the alpha level of
+0.1. These estimates are consistent across both bandwidths and across
+models with different types of kernel functions, except for not being
+statistically significant in quadratic models estimated with narrower
+bandwidth of 0.025. Therefore, the results given by donut regression
+discontinuity models are essentially identical with those given by
+ordinary models presents in the last section.
+
+\begingroup
+\renewcommand{\arraystretch}{1.1}
+
+\begin{table}
+
+\caption{Donut Regression Discontinuity Estimates of the Effect of Receiving Punishments at the 0.08 BAC Threshold on Recidivism}
+\label{tab:donut}
+\centering
+\begin{threeparttable}
+\begin{tabular}[t]{l>{\centering\arraybackslash}p{8em}>{\centering\arraybackslash}p{8em}>{\centering\arraybackslash}p{8em}>{\centering\arraybackslash}p{8em}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Rectangular kernel} & \multicolumn{2}{c}{Triangular kernel} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+  & Linear & Quadratic & Linear & Quadratic\\
+\midrule
+\multicolumn{5}{l}{\textit{DUI $\in$ [0.03, 0.13]}} \\
+\textit{DUI} & –0.026*** & –0.014* & –0.022*** & –0.018**\\
+ & (0.005) & (0.007) & (0.005) & (0.006)\\
+Mean & 0.105 & 0.099 & 0.102 & 0.101\\
+Controls & Yes & Yes & Yes & Yes\\
+Num. of Obs. & 88,085 & 88,085 & 88,085 & 88,085\\
+\addlinespace
+\multicolumn{5}{l}{\textit{DUI $\in$ [0.055, 0.105]}} \\
+\textit{DUI} & –0.022*** & –0.015 & –0.020*** & –0.020\\
+ & (0.007) & (0.011) & (0.007) & (0.012)\\
+Mean & 0.103 & 0.099 & 0.103 & 0.104\\
+Controls & Yes & Yes & Yes & Yes\\
+Num. of Obs. & 45,075 & 45,075 & 45,075 & 45,075\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on recidivism after dropping observations in the interval [0.079, 0.081]. The upper panel presents estimates based on a 0.05 bandwidth, and the lower panel presents estimates based on a 0.025 bandwidth. The table includes results from both linear and quadratic models, with either a rectangular or a triangular kernel weight function. Controls include individuals' gender, race, age, and an indicator of whether the BAC test was conducted in a traffic accident. Counterfactual predictions of mean recidivism are calculated at the 0.079 BAC threshold and mean age of the respective populations, averaging over individuals' gender and race, as well as over whether the BAC testing was conducted in an accident. Heteroscedasticity-robust standard errors are in parentheses. $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\endgroup
+
+\hypertarget{discussion-critique-and-extension}{%
+\section{Discussion, Critique and
+Extension}\label{discussion-critique-and-extension}}
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
