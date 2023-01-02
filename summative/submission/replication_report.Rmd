@@ -230,7 +230,7 @@ Figure \ref{fig:rdplot} plots means of recidivism in bins and predicted recidivi
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\columnwidth]{../figures/combined.pdf}
-  \caption{\textbf{Regression Discontinuity Plot of the Effect of Receiving Punishments at the 0.08 BAC Threshold on Recidivism.} Plot of means of recidivism in bins and predicted recidivism using simple regression models. In plotting the binned means (gray points), Panel A and B choose the number of bins on each side of the threshold using the formula $bins = min\{\sqrt{n}, 10 \times \frac{\ln{n}}{\ln{10}}\}$, while Panel C and D choose the number using quantile spaced binning (Calonico et al., 2015). For the confidence intervals (shaded areas in red), Panel A and B plot the 95\% confidence interval of the regression models, while Panel C and D plot the 95\% confidence interval of each bin. For the regression models (red lines), Panel A and C plot the best fitted linear model, while Panel B and D plot the best fitted second-order polynomial. All panels plot the data within the interval $BAC \in [0.06, 0.11]$. The vertical dashed lines represent the ABC threshold at 0.08.}
+  \caption{\textbf{Regression Discontinuity Plot of the Effect of Receiving Punishments at the 0.08 BAC Threshold on Recidivism.} Plot of means of recidivism in bins and predicted recidivism using simple regression models. In plotting the binned means (gray points), Panel A and B choose the number of bins on each side of the threshold using the formula $bins = min\{\sqrt{n}, 10 \times \frac{\ln{n}}{\ln{10}}\}$, while Panel C and D choose the number using quantile spaced binning **(Calonico et al., 2015)**. For the confidence intervals (shaded areas in red), Panel A and B plot the 95\% confidence interval of the regression models, while Panel C and D plot the 95\% confidence interval of each bin. For the regression models (red lines), Panel A and C plot the best fitted linear model, while Panel B and D plot the best fitted second-order polynomial. All panels plot the data within the interval $BAC \in [0.06, 0.11]$. The vertical dashed lines represent the BAC threshold at 0.08.}
   \label{fig:rdplot}
 \end{figure}
 
@@ -315,5 +315,10 @@ Num. of Obs. & 45,075 & 45,075 & 45,075 & 45,075\\
 \endgroup
 
 # Discussion, Critique and Extension
+
+Using a regression discontinuity design, the present study aims to replicate the findings of **Hansen (2015)** about the effect of punishments and sanctions on reducing repeat drunk driving. Specifically, the present study focuses on testing whether receiving punishments at the 0.08 Blood Alcohol Content (BAC) threshold reduces future recidivism of drunk driving with a local linear regression model. The findings show that receiving punishments at the threshold reduces recidivism by up to 2.4 percentage points \footnote{The average estimated effect is 2.1 percentage points. The average estimate is calculated over models based on different bandwidths and with different kernel functions, assuming equal weights of estimates.}. Robustness test based on local second-order polynomials show that receiving punishments at the threshold reduces recidivism by up to 1.6 percentage points \footnote{The average estimated effect is 1.5 percentage points.}. These estimates are consistent with those given by models that take into account non-random heaping in the data.
+
+The findings of the present study successfully replicate the main results of **Hansen (2015)**.
+
 
 # Conclusion
