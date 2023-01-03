@@ -172,9 +172,9 @@ distribution of BAC and test for discontinuity in its distribution at
 the threshold. Figure \ref{fig:bac_hist_continuous} shows the
 distribution of BAC level. Based on a recently developed local
 polynomial density estimator \textbf{(CJM, 2020)}, the hypothesis that
-the distribution is continuous at 0.08 cannot be rejected at the alpha
-level of 0.05 (\emph{p} = 0.890). Therefore, there is no evidence for
-the existence of manipulation on the BAC level.
+the distribution is continuous at 0.08 cannot be rejected at the level
+of 0.05 (\emph{p} = 0.890). Therefore, there is no evidence for the
+existence of manipulation on the BAC level.
 
 \begin{figure}[H]
   \centering
@@ -293,12 +293,12 @@ Table \ref{tab:main} reports the estimated effect of receiving
 punishments at the threshold on recidivism. Local linear regression
 model with a rectangular kernel function gives the estimate that
 receiving punishments at the 0.08 BAC threshold decreases recidivism by
-2.4 percentage points, which is statistically significant at the alpha
-level of 0.01. Local second-order polynomial with a rectangular kernel
+2.4 percentage points, which is statistically significant at the level
+of 0.01. Local second-order polynomial with a rectangular kernel
 function gives an estimate of a decrease in recidivism by 1.4 percentage
-points, which is statistically significant at the alpha level of 0.05.
-These estimates are consistent across both bandwidths and across models
-with different types of kernel functions.
+points, which is statistically significant at the level of 0.05. These
+estimates are consistent across both bandwidths and across models with
+different types of kernel functions.
 
 \begingroup
 \renewcommand{\arraystretch}{1.1}
@@ -352,7 +352,7 @@ decreasing recidivism.
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\columnwidth]{../figures/combined.pdf}
-  \caption{\textbf{Regression Discontinuity Plot of the Effect of Receiving Punishments at the 0.08 BAC Threshold on Recidivism.} Plot of means of recidivism in bins and predicted recidivism using simple regression models. In plotting the binned means (gray points), Panel A and B choose the number of bins on each side of the threshold using the formula $bins = min\{\sqrt{n}, 10 \times \frac{\ln{n}}{\ln{10}}\}$, while Panel C and D choose the number using quantile spaced binning **(Calonico et al., 2015)**. For the confidence intervals (shaded areas in red), Panel A and B plot the 95\% confidence interval of the regression models, while Panel C and D plot the 95\% confidence interval of each bin. For the regression models (red lines), Panel A and C plot the best fitted linear model, while Panel B and D plot the best fitted second-order polynomial. All panels plot the data within the interval $BAC \in [0.06, 0.11]$. The vertical dashed lines represent the BAC threshold at 0.08.}
+  \caption{\textbf{Regression Discontinuity Plot of the Effect of Receiving Punishments at the 0.08 BAC Threshold on Recidivism.} Plot of means of recidivism in bins and predicted recidivism using simple regression models. In plotting the binned means (gray points), Panel A and B choose the number of bins on each side of the threshold using the formula $min\{\sqrt{n}, 10 \times \frac{\ln{n}}{\ln{10}}\}$, while Panel C and D choose the number using quantile spaced binning **(Calonico et al., 2015)**. For the confidence intervals (shaded areas in red), Panel A and B plot the 95\% confidence interval of the regression models, while Panel C and D plot the 95\% confidence interval of each bin. For the regression models (red lines), Panel A and C plot the best fitted linear model, while Panel B and D plot the best fitted second-order polynomial. All panels plot the data within the interval $BAC \in [0.06, 0.11]$. The vertical dashed lines represent the BAC threshold at 0.08.}
   \label{fig:rdplot}
 \end{figure}
 
@@ -385,16 +385,16 @@ The results from donut regression discontinuity models are presented in
 Table \ref{tab:donut}. According to the local linear regression model
 with a rectangular kernel function, receiving punishments at the
 threshold decreases recidivism by 2.6 percentage points and is
-statistically significant at the alpha level of 0.01. According to the
-local second-order polynomial with a rectangular kernel function,
-receiving punishments at the threshold decreases recidivism by 1.4
-percentage points and is statistically significant at the alpha level of
-0.1. These estimates are consistent across both bandwidths and across
-models with different types of kernel functions, except for not being
-statistically significant in quadratic models estimated with narrower
-bandwidth of 0.025. Therefore, the results given by donut regression
-discontinuity models are essentially identical with those given by
-ordinary models presents in the last section.
+statistically significant at the level of 0.01. According to the local
+second-order polynomial with a rectangular kernel function, receiving
+punishments at the threshold decreases recidivism by 1.4 percentage
+points and is statistically significant at the level of 0.1. These
+estimates are consistent across both bandwidths and across models with
+different types of kernel functions, except for not being statistically
+significant in quadratic models estimated with narrower bandwidth of
+0.025. Therefore, the results given by donut regression discontinuity
+models are essentially identical with those given by ordinary models
+presents in the last section.
 
 \begingroup
 \renewcommand{\arraystretch}{1.1}
@@ -453,12 +453,152 @@ receiving punishments at the threshold reduces recidivism by up to 1.6
 percentage points
 \footnote{The average estimated effect is 1.5 percentage points.}. These
 estimates are consistent with those given by models that take into
-account non-random heaping in the data.
+account non-random heaping in the data. The findings of the present
+study successfully replicate the main results of \textbf{Hansen (2015)},
+which gives an estimated decrease in recidivism of up to 2 percentage
+points due to receiving punishments at the 0.08 BAC threshold. The
+success of replication demonstrates the validity of the methodology and
+results of the original study.
 
-The findings of the present study successfully replicate the main
-results of \textbf{Hansen (2015)}.
+\textbf{Hansen (2015)} also presents related results that the present
+study, due to its scope and the limitation of the data available, does
+not replicate. As a part of the strengths of the original study, these
+findings either establish the robustness of the main results under
+different assumptions or reveal the heterogeneity of the effect of
+receiving punishments.
+
+In terms of the robustness of the main results, the original study
+estimates regression discontinuity models using polynomials up to the
+third order, three types of kernel functions, and based on a series of
+bandwidths that extend beyond 0.05 and 0.025. The results show that the
+point estimates are relatively consistent, except for those given by the
+local second-order polynomial and those estimated based on very small
+bandwidths.
+
+The heterogeneity of the effects of punishments include the effects
+among different populations and the effect on different types of
+recidivism. First of all, the original study separates analyses for
+drivers with and without prior drunk driving experience, in addition to
+running regression models on the entire population of drivers. This
+allows the original study to find that the effect of receiving
+punishments at the threshold is more pronounced among drivers with
+previous drunk driving experience (by about 4.6 percentage points, which
+is 25.2 percent
+\footnote{The estimate of percentgae points is calcultaed by taking the mean over the two estimates reported in Table 3 of Hansen (2015).}).
+Moreover, the study conducts sensitivity analyses using different
+measures of prior drunk driving experiences, including whether a driver
+has taken BAC tests, whether a driver has a previous BAC over 0.08 (and
+is considered a case of DUI), as well as whether a driver has a prior
+conviction. Across all measures, regression models give point estimates
+and confidence intervals that are largely similar to each other. This
+demonstrates the robustness of the differential effects of receiving
+punishments at the threshold on different populations of drivers.
+Second, the original study conducts a detailed analyses of the effect of
+receiving punishments on three types of recidivism, refusal of taking a
+BAC test, and the likelihood of being stopped by a police. It finds that
+receiving punishments decreases the likelihood of being stopped as well
+as recidivism of all kinds. The effect is the largest on recidivism in
+which a driver has a BAC values in \([0.08, 0.15]\).
+
+Despite multiple strengths of the original study, it can still be
+improved in several aspects. First, although sensitivity analyses using
+different bandwidths in the original study establish the robustness of
+the results, bandwidths of 0.05 and 0.025 still seem to be arbitrary
+choices of the researcher. Bandwidth choice can be improved by using
+data-driven methods with a chosen principle. For example, Mean Squared
+Error (MSE) optimal bandwidth choice method is available and has been
+recently improved with a bias correction of point estimate for better
+inference \textbf{(Imbens and Kalyanaraman, 2012; Cattaneo and
+Vazquez-Bare, 2016)}. Alternatively, when the goal is to construct
+optimal confidence intervals for inference, one can choose to use a
+bandwidth selection method that minimises coverage error (CE)
+probability \textbf{(Calonico et al., 2022)}. Both MSE-optimal and
+CE-optimal bandwidths are based on the data and constructed according to
+an explicit desideratum, which makes the bandwidth choice more objective
+and transparent. Future research can and should make full use of these
+methods as they are readily available in packages of major statistical
+software \textbf{(Calonico et al., 2015; Calonico et al., 2017)}.
+
+Second, in light of the present study, local second-order polynomials
+consistently give lower estimates than linear models. In fact, this is
+also the finding from the robustness test of the original study
+(Appendix Table 5 of Hansen, 2015). This suggests that the estimates of
+the effect of receiving punishments at the threshold are somewhat
+dependent on the assumptions of the effect's functional form. Although
+it is difficult to pin down one reasonable functional assumption due to
+the complex nature of the effect of punishments, future research should
+give equal weights in presenting the results given by different models.
+This is especially important for such an estimand as the effect of
+punishments on repeat drunk driving that is closely associated with
+policy making, since even a small difference in the estimate can lead to
+big differences when scaled up.
+
+Third, the use of linear models is undesirable when recidivism, the
+outcome variable, is a binary variable. In simple words, this is because
+a mathematical inconsistency exists between the estimand (which can only
+take the value of 0 and 1) and the potential outcome of a linear model
+(which can take the value of any real number). In practice, future
+research can utilise logistic regressions in combination with regression
+discontinuity design to estimate the effect of punishments on
+recidivism. This should not be a difficult task because recent research
+in econometrics has developed and programmed such methods based on the
+multinomial logit model, together with optimal bandwidth selection and
+bias correction techniques \textbf{(Xu, 2017)}.
+
+Fourth, the robustness checks using donut hole regression discontinuity
+models are limited considering the possible non-random heaping in the
+data. The original study used donut hole models primarily to deal with
+potential confounders, but non-random heaping might also exist in light
+of the present study. Although the original study runs the model with
+observations dropped within windows of different sizes and found
+relatively consistent results, this method could still give biased
+estimates if non-random heaping outside the windows was biasing the
+estimation \textbf{(Barreca et al., 2016)}. Future studies can adopt a
+potential solution suggested by previous research, that is, to separate
+the analyses for non-heaped data and heap points (if any). Unbiased
+estimates can be derived by taking a population-weighted average of the
+two estimates based on the restricted sample sizes \textbf{(Barreca et
+al., 2016)}.
+
+Finally, the external and internal validity of the study can be improved
+in future extensions. To improve the external validity of the
+estimation, one can use data from regions other than the state of
+Washington. This is to establish that punishments are universally
+effective in reducing repeat drunk driving across regions and the effect
+is not caused by some other factors specific to the state of Washington.
+The internal validity of the causal relation can be improved by
+conducting a longitudinal field experiment. One can choose a region
+where laws criminalizing DUI are not yet enforced, and carry out an
+experiment by manipulating the magnitude of the punishments drivers will
+receive if found driving under the influence. Drivers with a BAC level
+just below a chosen threshold are randomly assigned to receive lighter
+punishments than those with a BAC level just above the threshold. This
+method can theoretically provide stronger evidence for the causal
+relation between receiving punishments and recidivism. However, there
+are also challenges to such designs. For example, methodologically
+speaking, it is hard to prevent spillover effect. Drivers may find out
+punishments vary among individuals, and the consequence of such an
+effect is essentially unpredictable. Ethically speaking, it also
+requires debate on how such an experiment adhere to the principle of
+transparency. Due to the scope of this paper, I will not expand further
+on these topics and will leave them to be addressed by future research.
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
+
+The present study successfully replicates the main results of the study
+\emph{Punishment and Deterrence: Evidence from Drunk Driving}
+\textbf{(Hansen, 2015)} about the effect of punishments and sanctions on
+reducing repeat drunk driving using a regression discontinuity design.
+Specifically, I find that receiving punishments at the 0.08 BAC
+threshold reduces recidivism by up to 2.4 percentage points according to
+local linear regression models, and the decrease is up to 1.6 percentage
+points according to local second-order polynomials. These results
+provide evidence for the validity of the original study. The original
+study also goes beyond these estimates and reveals heterogeneity of the
+effects. Despite these strengths, the study can still be improved in
+aspects such as bandwidth selection, the selection of appropriate models
+and robustness checks, the presentation of the results, as well as
+internal and external validity.
 
 \end{document}
