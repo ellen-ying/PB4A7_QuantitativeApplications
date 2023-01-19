@@ -1,2 +1,3 @@
-summative/submission/replication_report.pdf : summative/submission/replication_report.Rmd
-	R -e "rmarkdown::render('summative/submission/replication_report.Rmd')"
+summative/submission/49045_PB4A7_Report.pdf : summative/submission/49045_PB4A7_Report.Rmd\
+	summative/submission/reference.bib
+	R -e "rmarkdown::render('summative/submission/49045_PB4A7_Report.Rmd')"

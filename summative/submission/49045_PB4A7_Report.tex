@@ -169,6 +169,10 @@ Driving}\label{replication-of-hansen-2015-punishment-and-deterrence-evidence-fro
 \addcontentsline{toc}{section}{Replication of Hansen (2015) Punishment
 and Deterrence: Evidence from Drunk Driving}
 
+\vspace*{5mm}
+
+Word count: 2739
+
 \vspace*{30mm}
 
 Submitted as the summative assessment for\\
@@ -183,60 +187,61 @@ PB4A7: Quantitative Applications for Behavioural Science 2022
 
 In the study \emph{Punishment and Deterrence: Evidence from Drunk
 Driving} (Hansen, 2015), Hansen investigated the effect of punishments
-and sanctions on reducing repeat drunk driving. The study implemented a
-quasi-experimental design, utilising the administrative records from
-1995 to 2011 of the state of Washington, U.S., where two thresholds of
-blood alcohol content (BAC) are used to determine the status of driving
-under the influence (DUI). Specifically, a driver with a measured BAC
+and sanctions on reducing repeat drunk driving. The study used a
+regression discontinuity design (RDD), utilising the administrative data
+from 1995 to 2011 of the state of Washington, U.S., where two thresholds
+of blood alcohol content (BAC) are used to determine the status of
+driving under the influence (DUI). Specifically, a driver with a BAC
 over 0.08 is considered a case of DUI and will be punished via measures
 such as fines, jail time, and driving license suspension. One with a BAC
 over 0.15 is considered a case of aggravated DUI, to which more severe
-punishments and sanctions are applied. Since BAC measure has clear-cut
-numeric thresholds for determining whether a driver will receive harsher
-punishments, and neither drivers or police can manipulate this measure,
-Hansen applied a regression discontinuity design to analyse the data
-\textbf{(expand on the justification of using RDD)}. He hypothesized
-that receiving harsher punishments and sanctions at both thresholds
-would reduce offenders' future recidivism of DUI. He further applied the
-RDD to analyse the effect of receiving harsher punishments on the degree
-of deterrence, incapacitation, and rehabilitation in order to identify
-the mechanism through which harsher punishments might reduce recidivism
-\textbf{(check the paper to see whether this sentence is precise)}.
+punishments and sanctions are applied.
 
-\textbf{Ideally also the results}
+To address the above research question, using the RDD with the BAC as
+the running variable is justified for several reasons. First, the BAC
+has clear-cut numeric thresholds for determining the severity of
+punishments. Second, whether a driver has a BAC level just above or
+below the thresholds is justifiably assumed to be completely random.
+Third, neither drivers nor police can manipulate the BAC measure.
+Applying RDD, Hansen hypothesised that receiving harsher punishments and
+sanctions at both thresholds would reduce offenders' future recidivism
+of DUI. This hypothesis was supported by the findings of the study.
 
 The present study aims to replicate the findings from Hansen (2015)
-using regression discontinuity design applied to a similar data
-\textbf{(what is it exactly\ldots)}. It will be focused on estimating
-the effect of receiving punishments on reducing recidivism at the 0.08
-BAC threshold only. The paper proceeds as follows. Section 1 discusses
-the econometric method and assumptions underlying its application to the
-current data. Section 2 presents the main results, and Section 3
-discusses critiques and extensions to the original study. Section 4
-concludes.
+using the RDD applied to the data provided by the course instructor. It
+will only be focused on the effect of receiving punishments on
+recidivism at the 0.08 BAC threshold. The paper proceeds as follows.
+Section 1 describes the data and the econometrics method, and discusses
+the assumptions of applying the RDD. Section 2 presents the main
+results, and Section 3 discusses the results as well as critiques and
+extensions to the original study. Section 4 concludes.
 
-\hypertarget{methods-and-assumptions}{%
-\section{Methods and Assumptions}\label{methods-and-assumptions}}
+\hypertarget{data-methods-and-assumptions}{%
+\section{Data, Methods, and
+Assumptions}\label{data-methods-and-assumptions}}
 
-\hypertarget{assumptions-of-the-regression-discontinuity-design}{%
-\subsection{Assumptions of the regression discontinuity
-design}\label{assumptions-of-the-regression-discontinuity-design}}
+\hypertarget{data}{%
+\subsection{Data}\label{data}}
 
-The present study applies the regression discontinuity design to the
-data provided by the class instructor. Several assumptions need to be
-met so that the regression discontinuity design can give accurate
-estimates. First, people need to be randomly assigned to receiving
-punishment at the BAC threshold. In other words, neither the drivers nor
-the police can manipulate the BAC level and thus whether one will
-receive punishment. Hansen (2015) has already given a plausible
-theoretical justification for this assumption. Empirically, I plot the
-distribution of BAC and test for discontinuity in its distribution at
-the threshold. Figure \ref{fig:bac_hist_continuous} shows the
-distribution of BAC level. Based on a recently developed local
-polynomial density estimator (Cattaneo et al., 2020), the hypothesis
-that the distribution is continuous at 0.08 cannot be rejected at the
-level of 0.05 (\emph{p} = 0.890). Therefore, there is no evidence for
-the existence of manipulation on the BAC level.
+The data on which the present study is based is provided by the class
+instructor. It documents the BAC level of each driver, the time when it
+was measured, and whether it was measured at a traffic accident. The
+data also contains information on drivers' recidivism, gender, race, and
+age.
+
+\hypertarget{assumptions-of-the-rdd}{%
+\subsection{Assumptions of the RDD}\label{assumptions-of-the-rdd}}
+
+Several assumptions are required for the RDD to give accurate estimates
+(See Appendix B for a discussion on manipulation). One of these is that
+the running variable should not contain non-random heaping (Barreca et
+al., 2016). This means that BAC should not be much more likely to take
+certain values than others, which can bias the estimates if occurring at
+the threshold. Based on the histogram of the BAC as a continuous
+variable (Figure \ref{fig:bac_hist_continuous}), this assumption seems
+to be violated. Curiously, when the BAC is plotted as a discrete
+variable, non-random heaping disappears (Figure
+\ref{fig:bac_hist_discrete}).
 
 \begin{figure}[H]
   \centering
@@ -245,25 +250,15 @@ the existence of manipulation on the BAC level.
   \label{fig:bac_hist_continuous}
 \end{figure}
 
-The second assumption is that the running variable should not contain
-non-random heaping, which can lead to biased estimates in regression
-discontinuity models (Barreca et al., 2016). In other words, BAC should
-not be much more likely to take certain values than others. Based on
-Figure \ref{fig:bac_hist_continuous}, this assumption seems to be
-violated. Curiously, when BAC is plotted as a discrete variable,
-non-random heaping disappears (Figure \ref{fig:bac_hist_discrete}). A
-closer inspection of the data suggests that this is probably due to the
-lack of precision in BAC in the current data. Many BAC values deviate by
-a very small amount from the values that are supposed to be given by the
-breathalysers (i.e., precise to three digits after the decimal point).
-Some bins have a value at the left boundary deviating upwards and a
-value at the right boundary deviating downwards. Such bins will contain
-a larger number of observations than other bins and thus leads to
-heaping. This would not occur if the data records the values precisely
-so that the number of observations are rightly separated into and
-plotted by two bins, or if we treat BAC as discrete and give each value
-its own bin. \textbf{(consider using a simulation to justify this
-claim?)}
+A closer inspection of the data suggests that this is probably due to
+the lack of precision in the BAC in the current data. Many BAC values
+deviate by a very small amount from the values that are supposed to be
+given by the breathalysers (i.e., precise to three digits after the
+decimal point). For some bins, the measured BAC value at the left
+boundary deviate upwards and the value at the right boundary deviating
+downwards. Such bins will contain a larger number of observations than
+their neighbours and thus lead to heaping (See Appendix C for a detailed
+discussion based on simulations).
 
 \begin{figure}[H]
   \centering
@@ -272,49 +267,32 @@ claim?)}
   \label{fig:bac_hist_discrete}
 \end{figure}
 
-\hypertarget{the-model}{%
-\subsection{The model}\label{the-model}}
+\hypertarget{the-model-and-control-variables}{%
+\subsection{The model and control
+variables}\label{the-model-and-control-variables}}
 
-The present study utilises a local linear regression model with a
-rectangular kernel weight function to estimate the effect of receiving
-punishments at the threshold on recidivism. For sensitivity analyses,
-the models are re-estimated using second-order polynomials and triangle
-kernel function). The model is specified by the following function:
+Similar to the original study (Hansen, 2015), the present study utilises
+a local linear regression model with a rectangular kernel weight
+function to estimate the effect of receiving punishments at the
+threshold on recidivism. For sensitivity analyses, the models are
+re-estimated using second-order polynomials or a triangle kernel
+function (See Appendix B for model details).
 
-\begin{equation}
-  \label{eqn:model}
-  R_i = \alpha + \beta_1 DUI_i + \beta_2 BAC_i + \beta_3 DUI_i \times BAC_i + \tau Z_i + \epsilon_i
-\end{equation}
-
-where the variable \(DUI_i\) is an indicator of whether BAC is above the
-0.08 threshold, \(BAC_i\) is the measure of BAC level, \(R_i\) is an
-indicator of recidivism, and \(Z_i\) is a vector of control variables.
-The variable \(BAC_i\) in the model is centered around the threshold
-value of 0.08 so that the coefficients directly reflect the estimates of
-the effect.
-
-\hypertarget{inclusion-of-control-variables}{%
-\subsection{Inclusion of control
-variables}\label{inclusion-of-control-variables}}
-
-In order to determine whether any covariates should be included in the
-model, I run preliminary analyses on the effect of receiving punishments
-at the threshold on four predetermined characteristics, including three
-demographic variables (gender, race, and age) and the BAC test being
-conducted in a traffic accident. The analyses use the same local linear
-regression model specified in equation (\ref{eqn:model}), with a
-bandwidth of 0.05 and no kernel weight function. As Table
-\ref{tab:covariate} shows, I fail to reject any of the null hypotheses
-that predetermined characteristics remained the same at the threshold.
-This indicates that gender, race, age, and the BAC test being conducted
-in a traffic accident, on average, were not different between people who
-did not receive punishments and those who received punishments at the
-threshold
-\footnote{This is an additional evidence for the absence of manipulation at the threshold, which further assures the regression discontinuity design can deliver unbiased estimates.}.
-According to (Calonico et al., 2019), I will include the four
-predetermined characteristics in regression discontinuity models to
-improve the estimation precision of the effects of receiving punishments
-at the threshold on recidivism.
+To determine the control variables, I run preliminary analyses on the
+effect of receiving punishments at the threshold on four predetermined
+characteristics, including three demographic variables (gender, race,
+and age) and the BAC test being conducted in a traffic accident. The
+analyses use the same local linear regression model as the main
+analyses, with a bandwidth of 0.05 and a rectangular kernel weight
+function. As Table \ref{tab:covariate} shows, I fail to reject any of
+the null hypotheses that predetermined characteristics remained the same
+at the threshold. This indicates that gender, race, age, and the BAC
+test being conducted in a traffic accident, on average, were not
+different between people who did not receive punishments and those who
+received punishments at the threshold. According to Calonico et al.
+(2019), I will include the four predetermined characteristics in
+regression discontinuity models to improve the precision of the
+estimation.
 
 \begingroup
 \renewcommand{\arraystretch}{1.3}
@@ -337,7 +315,8 @@ Num. of Obs. & 89,967 & 89,967 & 89,967 & 89,967\\
 \end{tabular}
 \begin{tablenotes}
 \small
-\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on four predetermined characteristics. All models use a bandwidth of 0.05 and a rectangular kernel weight function. Counterfactual predictions of mean recidivism is calculated at the 0.079 BAC threshold. Heteroscedasticity-robust standard errors are in parentheses. $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
+\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on four predetermined characteristics. All models use a bandwidth of 0.05 and a rectangular kernel weight function. Counterfactual predictions of mean recidivism is calculated at the 0.079 BAC threshold. Heteroscedasticity-robust standard errors are in parentheses.
+\item $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -347,20 +326,20 @@ Num. of Obs. & 89,967 & 89,967 & 89,967 & 89,967\\
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-\hypertarget{the-effect-of-punishments-on-recidivism}{%
-\subsection{The Effect of Punishments on
-Recidivism}\label{the-effect-of-punishments-on-recidivism}}
+\hypertarget{the-effect-of-receiving-punishments-on-recidivism}{%
+\subsection{The Effect of Receiving Punishments on
+Recidivism}\label{the-effect-of-receiving-punishments-on-recidivism}}
 
 Table \ref{tab:main} reports the estimated effect of receiving
-punishments at the threshold on recidivism. Local linear regression
+punishments at the threshold on recidivism. The local linear regression
 model with a rectangular kernel function gives the estimate that
 receiving punishments at the 0.08 BAC threshold decreases recidivism by
 2.4 percentage points, which is statistically significant at the level
-of 0.01. Local second-order polynomial with a rectangular kernel
-function gives an estimate of a decrease in recidivism by 1.4 percentage
-points, which is statistically significant at the level of 0.05. These
-estimates are consistent across both bandwidths and across models with
-different types of kernel functions.
+of 0.01. The local second-order polynomial with a rectangular kernel
+function gives an estimate of a decrease by 1.4 percentage points, which
+is statistically significant at the level of 0.05. These estimates are
+consistent across both bandwidths and across models with different types
+of kernel functions.
 
 \begingroup
 \renewcommand{\arraystretch}{1.1}
@@ -394,27 +373,28 @@ Num. of Obs. & 46,957 & 46,957 & 46,957 & 46,957\\
 \end{tabular}
 \begin{tablenotes}
 \small
-\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on recidivism. Panel A presents estimates based on a 0.05 bandwidth, and Panel B presents estimates based on a 0.025 bandwidth. The table includes results from both linear and quadratic models, with either a rectangular or a triangular kernel weight function. Controls include individuals' gender, race, age, and an indicator of whether the BAC test was conducted in a traffic accident. Counterfactual predictions of mean recidivism are calculated at the 0.079 BAC threshold and mean age of the respective populations, averaging over individuals' gender and race, as well as over whether the BAC testing was conducted in an accident. Heteroscedasticity-robust standard errors are in parentheses. $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
+\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on recidivism. Panel A presents estimates based on a 0.05 bandwidth, and Panel B presents estimates based on a 0.025 bandwidth. The table includes results from both linear and quadratic models, with either a rectangular or a triangular kernel weight function. Controls include individuals' gender, race, age, and an indicator of whether the BAC test was conducted in a traffic accident. Counterfactual predictions of mean recidivism are calculated at the 0.079 BAC threshold and mean age of the respective populations, averaging over individuals' gender and race, as well as over whether the BAC testing was conducted in an accident. Heteroscedasticity-robust standard errors are in parentheses.
+\item $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 \endgroup
 
-Figure \ref{fig:rdplot} plots means of recidivism in bins and predicted
-recidivism based on linear regression models or second-order polynomials
-using observations within the interval \(BAC \in [0.06, 0.11]\). Panel A
-and B and Panel C and D use different methods for binning observations
-and representing confidence intervals to ensure the robustness of the
-visual evidence (See the figure caption). All panels show an apparent
-drop in recidivism at the BAC threshold of 0.08. This visually indicates
-that there is an effect of receiving punishments at the BAC threshold in
-decreasing recidivism.
+Figure \ref{fig:rdplot} plots means of observed recidivism in bins and
+predicted recidivism based on linear regression models or second-order
+polynomials within the interval \(BAC \in [0.06, 0.11]\). Panel A and B
+and Panel C and D use different methods for binning observations and
+representing confidence intervals to ensure the robustness of the visual
+evidence (See the figure caption) (Calonico, Cattaneo, et al., 2015a).
+All panels show an apparent drop in recidivism at the BAC threshold of
+0.08. This visually indicates that there is an effect of receiving
+punishments at the threshold in decreasing recidivism.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\columnwidth]{../figures/combined.pdf}
-  \caption{\textbf{Regression Discontinuity Plot of the Effect of Receiving Punishments at the 0.08 BAC Threshold on Recidivism.} Plot of means of recidivism in bins and predicted recidivism using simple regression models. In plotting the binned means (gray points), Panel A and B choose the number of bins on each side of the threshold using the formula $min\{\sqrt{n}, 10 \times \frac{\ln{n}}{\ln{10}}\}$, while Panel C and D choose the number using quantile spaced binning **(Calonico et al., 2015)**. For the confidence intervals (shaded areas in red), Panel A and B plot the 95\% confidence interval of the regression models, while Panel C and D plot the 95\% confidence interval of each bin. For the regression models (red lines), Panel A and C plot the best fitted linear model, while Panel B and D plot the best fitted second-order polynomial. All panels plot the data within the interval $BAC \in [0.06, 0.11]$. The vertical dashed lines represent the BAC threshold at 0.08.}
+  \caption{\textbf{Regression Discontinuity Plot of the Effect of Receiving Punishments at the 0.08 BAC Threshold on Recidivism.} Plot of means of recidivism in bins and predicted recidivism using simple regression models. In plotting the binned means (the grey points), Panel A and B choose the number of bins on each side of the threshold using the formula $min\{\sqrt{n}, 10 \times \frac{\ln{n}}{\ln{10}}\}$, while Panel C and D choose the number using quantile spaced binning (Calonico, Cattaneo, et al., 2015a). For the confidence intervals (the shaded areas in red), Panel A and B plot the 95\% confidence interval of the regression models, while Panel C and D plot the 95\% confidence interval of each bin. For the regression models (the red lines), Panel A and C plot the best fitted linear models, while Panel B and D plot the best fitted second-order polynomials. All panels plot the data within the interval $BAC \in [0.06, 0.11]$. The vertical dashed lines represent the BAC threshold at 0.08.}
   \label{fig:rdplot}
 \end{figure}
 
@@ -422,41 +402,39 @@ decreasing recidivism.
 \subsection{Robustness}\label{robustness}}
 
 Since there seems to be non-random heaping in the current data (Figure
-\ref{fig:bac_hist_continuous}), this section will use donut regression
-discontinuity models to investigate the robustness of the results
-presented in the last section. Donut regression discontinuity models
-entirely drop the observations near the threshold. Under appropriate
-assumptions, they are effective in preventing a heap just at the
-threshold from biasing the estimates (Barreca et al., 2016).
+\ref{fig:bac_hist_continuous}), this section will use donut hole
+regression discontinuity models to investigate the robustness of the
+results. The donut hole approach entirely drops the observations near
+the threshold before fitting an RD model. Under appropriate assumptions,
+it is effective in preventing a heap just at the threshold from biasing
+the estimates (Barreca et al., 2016).
 
 For the present study, I drop the observations in the interval
 \(BAC \in [0.079, 0.081]\), and re-estimate local linear and quadratic
 models with either a rectangular or a triangular kernel weight function.
-It is worth stressing that robustness test using local polynomials is
-especially important in a donut regression discontinuity design. This is
-because a donut regression model gets rid of the very observations on
-which the estimates of local average effects rely upon. The estimates
-given by donut regression models are essentially based on models'
-extrapolation over the region of the donut (Dowd, 2021) and may be
-especially sensitive to the assumptions about the underlying functional
-form \textbf{(Consider justifying this using a simulation)}. Using
-polynomials with different orders can ensure the robustness of the
-results over different functional assumptions.
+It is worth stressing that local polynomials are especially important
+for donut hole models. This is because the donut hole approach gets rid
+of the very observations on which the estimates of local average effects
+rely upon. The estimates given by donut hole models are essentially
+based on models' extrapolation over the region of the donut hole (Dowd,
+2021) and may be especially sensitive to the assumptions about the
+underlying functional form. Using polynomials with different orders can
+ensure the robustness of the results over different functional
+assumptions (See Appendix C for a detailed discussion based on
+simulations).
 
-The results from donut regression discontinuity models are presented in
-Table \ref{tab:donut}. According to the local linear regression model
-with a rectangular kernel function, receiving punishments at the
-threshold decreases recidivism by 2.6 percentage points and is
-statistically significant at the level of 0.01. According to the local
-second-order polynomial with a rectangular kernel function, receiving
-punishments at the threshold decreases recidivism by 1.4 percentage
-points and is statistically significant at the level of 0.1. These
-estimates are consistent across both bandwidths and across models with
-different types of kernel functions, except for not being statistically
-significant in quadratic models estimated with narrower bandwidth of
-0.025. Therefore, the results given by donut regression discontinuity
-models are essentially identical with those given by ordinary models
-presents in the last section.
+The results from donut hole models are presented in Table
+\ref{tab:donut}. According to the local linear regression model with a
+rectangular kernel function, receiving punishments at the threshold
+decreases recidivism by 2.6 percentage points and is statistically
+significant at the level of 0.01. According to the local second-order
+polynomial with a rectangular kernel function, the decrease is 1.4
+percentage points and is statistically significant at the level of 0.1.
+These estimates are consistent across both bandwidths and across models
+with different types of kernel functions, except for not being
+statistically significant in quadratic models estimated with a narrower
+bandwidth. Therefore, the results given by donut hole models are
+essentially similar with those given by ordinary RDD models.
 
 \begingroup
 \renewcommand{\arraystretch}{1.1}
@@ -490,7 +468,8 @@ Num. of Obs. & 45,075 & 45,075 & 45,075 & 45,075\\
 \end{tabular}
 \begin{tablenotes}
 \small
-\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on recidivism after dropping observations in the interval [0.079, 0.081]. Panel A presents estimates based on a 0.05 bandwidth, and Panel B presents estimates based on a 0.025 bandwidth. The table includes results from both linear and quadratic models, with either a rectangular or a triangular kernel weight function. Controls include individuals' gender, race, age, and an indicator of whether the BAC test was conducted in a traffic accident. Counterfactual predictions of mean recidivism are calculated at the 0.079 BAC threshold and mean age of the respective populations, averaging over individuals' gender and race, as well as over whether the BAC testing was conducted in an accident. Heteroscedasticity-robust standard errors are in parentheses. $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
+\item \textit{Note.} Regression discontinuity based estimates of the effect of receiving punishments at the 0.08 BAC threshold on recidivism after dropping observations in the interval [0.079, 0.081]. Panel A presents estimates based on a 0.05 bandwidth, and Panel B presents estimates based on a 0.025 bandwidth. The table includes results from both linear and quadratic models, with either a rectangular or a triangular kernel weight function. Controls include individuals' gender, race, age, and an indicator of whether the BAC test was conducted in a traffic accident. Counterfactual predictions of mean recidivism are calculated at the 0.079 BAC threshold and mean age of the respective populations, averaging over individuals' gender and race, as well as over whether the BAC testing was conducted in an accident. Heteroscedasticity-robust standard errors are in parentheses.
+\item $^{*}\, p<0.1$, $^{**}\, p<0.05$, $^{***}\, p<0.01$.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -506,36 +485,40 @@ replicate the findings of Hansen (2015) about the effect of punishments
 and sanctions on reducing repeat drunk driving. Specifically, the
 present study focuses on testing whether receiving punishments at the
 0.08 Blood Alcohol Content (BAC) threshold reduces future recidivism of
-drunk driving with a local linear regression model. The findings show
+drunk driving. The findings based on local linear regression models show
 that receiving punishments at the threshold reduces recidivism by up to
 2.4 percentage points
 \footnote{The average estimated effect is 2.1 percentage points. The average estimate is calculated over models based on different bandwidths and with different kernel functions, assuming equal weights of estimates.}.
-Robustness test based on local second-order polynomials show that
+Sensitivity analyses based on local second-order polynomials show that
 receiving punishments at the threshold reduces recidivism by up to 1.6
 percentage points
 \footnote{The average estimated effect is 1.5 percentage points.}. These
-estimates are consistent with those given by models that take into
-account non-random heaping in the data. The findings of the present
-study successfully replicate the main results of Hansen (2015), which
-gives an estimated decrease in recidivism of up to 2 percentage points
-due to receiving punishments at the 0.08 BAC threshold. The success of
-replication demonstrates the validity of the methodology and results of
-the original study.
+estimates are consistent with those given by the models that take into
+account non-random heaping in the data, establishing the robustness of
+the results.
 
-Hansen (2015) also presents related results that the present study, due
-to its scope and the limitation of the data available, does not
-replicate. As a part of the strengths of the original study, these
-findings either establish the robustness of the main results under
-different assumptions or reveal the heterogeneity of the effect of
-receiving punishments.
+\hypertarget{strengths-of-the-original-study}{%
+\subsection{Strengths of the original
+study}\label{strengths-of-the-original-study}}
+
+The findings of the present study successfully replicate the main
+results of Hansen (2015), which gives an estimated decrease caused by
+receiving punishments of up to 2 percentage points at the 0.08 BAC
+threshold. The success of the replication demonstrates the validity of
+the methodology and results of the original study. Hansen (2015) also
+presents related results that the present study, due to its scope and
+the limitation of the data available, does not replicate. As a part of
+the strengths of the original study, these findings either establish the
+robustness of the main results under different assumptions or reveal the
+heterogeneity of the effect of receiving punishments.
 
 In terms of the robustness of the main results, the original study
 estimates regression discontinuity models using polynomials up to the
 third order, three types of kernel functions, and based on a series of
 bandwidths that extend beyond 0.05 and 0.025. The results show that the
-point estimates are relatively consistent, except for those given by the
-local second-order polynomial and those estimated based on very small
-bandwidths.
+point estimates are relatively consistent, only except for those given
+by the local second-order polynomials and those estimated based on very
+small bandwidths.
 
 The heterogeneity of the effects of punishments include the effects
 among different populations and the effect on different types of
@@ -544,82 +527,74 @@ drivers with and without prior drunk driving experience, in addition to
 running regression models on the entire population of drivers. This
 allows the original study to find that the effect of receiving
 punishments at the threshold is more pronounced among drivers with
-previous drunk driving experience (by about 4.6 percentage points, which
-is 25.2 percent
-\footnote{The estimate of percentage points is calculated by taking the mean over the two estimates reported in Table 3 of Hansen (2015).}).
-Moreover, the study conducts sensitivity analyses using different
-measures of prior drunk driving experiences, including whether a driver
-has taken BAC tests, whether a driver has a previous BAC over 0.08 (and
-is considered a case of DUI), as well as whether a driver has a prior
-conviction. Across all measures, regression models give point estimates
-and confidence intervals that are largely similar to each other. This
-demonstrates the robustness of the differential effects of receiving
-punishments at the threshold on different populations of drivers.
-Second, the original study conducts a detailed analyses of the effect of
-receiving punishments on three types of recidivism, refusal of taking a
-BAC test, and the likelihood of being stopped by a police. It finds that
-receiving punishments decreases the likelihood of being stopped as well
-as recidivism of all kinds. The effect is the largest on recidivism in
-which a driver has a BAC values in \([0.08, 0.15]\).
+previous drunk driving experience. Second, the original study conducts a
+detailed analyses of the effect of receiving punishments on three types
+of recidivism, refusal of taking a BAC test, and the likelihood of being
+stopped by a police. It finds that receiving punishments decreases the
+likelihood of being stopped as well as recidivism of all kinds. Both
+results reveal the heterogeneous nature of the effect of receiving
+punishments on recidivism.
+
+\hypertarget{suggested-improvements-and-extentions}{%
+\subsection{Suggested improvements and
+extentions}\label{suggested-improvements-and-extentions}}
 
 Despite multiple strengths of the original study, it can still be
-improved in several aspects. First, although sensitivity analyses using
-different bandwidths in the original study establish the robustness of
-the results, bandwidths of 0.05 and 0.025 still seem to be arbitrary
-choices of the researcher. Bandwidth choice can be improved by using
-data-driven methods with a chosen principle. For example, Mean Squared
-Error (MSE) optimal bandwidth choice method is available and has been
-recently improved with a bias correction of point estimate for better
-inference Cattaneo \& Vazquez-Bare (2017). Alternatively, when the goal
-is to construct optimal confidence intervals for inference, one can
-choose to use a bandwidth selection method that minimises coverage error
-(CE) probability (Calonico et al., 2022). Both MSE-optimal and
-CE-optimal bandwidths are based on the data and constructed according to
-an explicit desideratum, which makes the bandwidth choice more objective
+improved in several aspects. First, the primary bandwidths used in the
+original study (0.05 and 0.025) seem to be arbitrary choices of the
+researcher. Bandwidth choice can be improved by using data-driven
+methods with a predetermined principle. For example, Mean Squared Error
+(MSE) optimal bandwidth is an available method and has recently been
+improved for better inference with a bias correction (Cattaneo \&
+Vazquez-Bare, 2017; Imbens \& Kalyanaraman, 2012). Alternatively, one
+can choose to use a method that minimises coverage error (CE)
+probability when the goal is to construct optimal confidence intervals
+for inference (Calonico et al., 2022). Both MSE-optimal and CE-optimal
+bandwidths are based on the data and constructed according to an
+explicit desideratum, which makes the bandwidth choice more objective
 and transparent. Future research can and should make full use of these
-methods as they are readily available in packages of major statistical
-software Calonico et al. (2017).
+methods as they are readily available in packages of mainstream
+statistical software (Calonico, Cattaneo, et al., 2015b; Calonico et
+al., 2017).
 
 Second, in light of the present study, local second-order polynomials
 consistently give lower estimates than linear models. In fact, this is
-also the finding from the robustness test of the original study
-(Appendix Table 5 of Hansen, 2015). This suggests that the estimates of
-the effect of receiving punishments at the threshold are somewhat
-dependent on the assumptions of the effect's functional form. Although
-it is difficult to pin down one reasonable functional assumption due to
-the complex nature of the effect of punishments, future research should
-give equal weights in presenting the results given by different models.
-This is especially important for such an estimand as the effect of
-punishments on repeat drunk driving that is closely associated with
-policy making, since even a small difference in the estimate can lead to
-big differences when scaled up.
+also the finding of the original study (Appendix Table 5 of Hansen,
+2015). This suggests that the estimates of the effect of receiving
+punishments at the threshold somewhat depend on the assumptions about
+the effect's functional form. Although it is difficult to pin down one
+reasonable functional assumption due to the complex nature of the
+effect, future research should give equal weights in presenting the
+results given by different models. This is especially important for such
+an estimand that is closely associated with policy making, since even a
+small difference in the estimate can lead to big differences when scaled
+up.
 
-Third, the use of linear models is undesirable when recidivism, the
-outcome variable, is a binary variable. In simple words, this is because
-a mathematical inconsistency exists between the estimand (which can only
-take the value of 0 and 1) and the potential outcome of a linear model
-(which can take the value of any real number). In practice, future
-research can utilise logistic regressions in combination with regression
-discontinuity design to estimate the effect of punishments on
-recidivism. This should not be a difficult task because recent research
-in econometrics has developed and programmed such methods based on the
-multinomial logit model, together with optimal bandwidth selection and
-bias correction techniques (Xu, 2017).
+Third, the use of simple linear regression models is inadequate when
+recidivism, the outcome variable, is a binary variable. In simple words,
+this is because of a mathematical inconsistency between the range of the
+outcome variable (which can only take the value of 0 and 1) and the
+range of a linear regression model (which can take the value of any real
+number). Future research can utilise logistic regressions in combination
+with the RDD to estimate the effect of punishments on recidivism. This
+should not be a difficult task because recent research in econometrics
+has developed and programmed such methods based on the multinomial logit
+model, together with optimal bandwidth selection and bias correction
+techniques (Xu, 2017).
 
 Fourth, the robustness checks using donut hole regression discontinuity
-models are limited considering the possible non-random heaping in the
-data. The original study used donut hole models primarily to deal with
-potential confounders, but non-random heaping might also exist in light
-of the present study. Although the original study runs the model with
-observations dropped within windows of different sizes and found
-relatively consistent results, this method could still give biased
-estimates if non-random heaping outside the windows was biasing the
-estimation (Barreca et al., 2016). Future studies can adopt a potential
-solution suggested by previous research, that is, to separate the
-analyses for non-heaped data and heap points (if any). Unbiased
-estimates can be derived by taking a population-weighted average of the
-two estimates based on the restricted sample sizes (Barreca et al.,
-2016).
+models are limited. Although the original study excluded the possibility
+of non-random heaping based on a histogram, the treatment of the
+variable (i.e., continuous vs.~discrete) of which is unclear, non-random
+heaping may exist in the original data in light of the present study. If
+this were the case, the donut hole approach could potentially still give
+biased estimates. This is because non-random heaping outside the
+dropping window can bias the estimation (Barreca et al., 2016). Future
+studies can adopt a solution suggested by previous research, that is, to
+separate the analyses for non-heaped data and heap points (if any).
+Unbiased estimates can be derived by taking a population-weighted
+average of the two estimates based on the respective sample sizes
+(Barreca et al., 2016).
 
 Finally, the external and internal validity of the study can be improved
 in future extensions. To improve the external validity of the
@@ -630,19 +605,19 @@ is not caused by some other factors specific to the state of Washington.
 The internal validity of the causal relation can be improved by
 conducting a longitudinal field experiment. One can choose a region
 where laws criminalizing DUI are not yet enforced, and carry out an
-experiment by manipulating the magnitude of the punishments drivers will
-receive if found driving under the influence. Drivers with a BAC level
+experiment by manipulating the magnitude of the punishments received by
+drivers if found driving under the influence. Drivers with a BAC level
 just below a chosen threshold are randomly assigned to receive lighter
 punishments than those with a BAC level just above the threshold. This
 method can theoretically provide stronger evidence for the causal
 relation between receiving punishments and recidivism. However, there
-are also challenges to such designs. For example, methodologically
-speaking, it is hard to prevent spillover effect. Drivers may find out
-punishments vary among individuals, and the consequence of such an
-effect is essentially unpredictable. Ethically speaking, it also
-requires debate on how such an experiment adhere to the principle of
-transparency. Due to the scope of this paper, I will not expand further
-on these topics and will leave them to be addressed by future research.
+are also challenges to such designs. For example, it is hard to prevent
+spillover effects. Drivers may find out punishments vary among
+individuals, and the consequence of such an effect is essentially
+unpredictable. Ethically speaking, it also invites debates on how such
+an experiment can adhere to the principle of transparency. Due to the
+scope of this paper, I will leave these challenges to be addressed by
+future research.
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
@@ -656,22 +631,98 @@ recidivism by up to 2.4 percentage points according to local linear
 regression models, and the decrease is up to 1.6 percentage points
 according to local second-order polynomials. These results provide
 evidence for the validity of the original study. The original study also
-goes beyond these estimates and reveals heterogeneity of the effects.
-Despite these strengths, the study can still be improved in aspects such
-as bandwidth selection, the selection of appropriate models and
-robustness checks, the presentation of the results, as well as internal
-and external validity.
+conducts additional analyses to establish the robustness of the results
+and reveal heterogeneity of the effects. Despite these strengths, the
+original study can be improved in aspects such as bandwidth selection,
+the selection of appropriate models and robustness checks, the
+presentation of the results, as well as internal and external validity.
 
 \newpage
 
-\hypertarget{appendix}{%
-\section*{Appendix}\label{appendix}}
-\addcontentsline{toc}{section}{Appendix}
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-barreca_heaping-induced_2016}{}}%
+Barreca, A. I., Lindo, J. M., \& Waddell, G. R. (2016). Heaping-induced
+bias in regression-discontinuity designs. \emph{Economic Inquiry},
+\emph{54}(1), 268--293. \url{https://doi.org/10.1111/ecin.12225}
+
+\leavevmode\vadjust pre{\hypertarget{ref-calonico_coverage_2022}{}}%
+Calonico, S., Cattaneo, M. D., \& Farrell, M. H. (2022). Coverage error
+optimal confidence intervals for local polynomial regression.
+\emph{Bernoulli}, \emph{28}(4). \url{https://doi.org/10.3150/21-BEJ1445}
+
+\leavevmode\vadjust pre{\hypertarget{ref-calonico_regression_2019}{}}%
+Calonico, S., Cattaneo, M. D., Farrell, M. H., \& Titiunik, R. (2019).
+Regression discontinuity designs using covariates. \emph{The Review of
+Economics and Statistics}, \emph{101}(3), 442--451.
+\url{https://doi.org/10.1162/rest_a_00760}
+
+\leavevmode\vadjust pre{\hypertarget{ref-calonico_rdrobust_2017}{}}%
+Calonico, S., Cattaneo, M. D., Farrell, M. H., \& Titiunik, R. (2017).
+{rdrobust}: Software for regression-discontinuity designs. \emph{The
+Stata Journal}, \emph{17}(2), 372--404.
+https://doi.org/\url{https://doi.org/10.1177/1536867X1701700208}
+
+\leavevmode\vadjust pre{\hypertarget{ref-calonico_optimal_2015}{}}%
+Calonico, S., Cattaneo, M. D., \& Titiunik, R. (2015a). Optimal
+data-driven regression discontinuity plots. \emph{Journal of the
+American Statistical Association}, \emph{110}(512), 1753--1769.
+\url{https://doi.org/10.1080/01621459.2015.1017578}
+
+\leavevmode\vadjust pre{\hypertarget{ref-calonico_rdrobust_2015}{}}%
+Calonico, S., Cattaneo, M., D., \& Titiunik, R. (2015b). {rdrobust}: An
+{R} package for robust nonparametric inference in
+regression-discontinuity designs. \emph{The R Journal}, \emph{7}(1), 38.
+\url{https://doi.org/10.32614/RJ-2015-004}
+
+\leavevmode\vadjust pre{\hypertarget{ref-cattaneo_simple_2020}{}}%
+Cattaneo, M. D., Jansson, M., \& Ma, X. (2020). Simple local polynomial
+density estimators. \emph{Journal of the American Statistical
+Association}, \emph{115}(531), 1449--1455.
+\url{https://doi.org/10.1080/01621459.2019.1635480}
+
+\leavevmode\vadjust pre{\hypertarget{ref-cattaneo_choice_2017}{}}%
+Cattaneo, M. D., \& Vazquez-Bare, G. (2017). The choice of neighborhood
+in regression discontinuity designs. \emph{Observational Studies},
+\emph{3}(2), 134--146.
+https://doi.org/\url{https://doi.org/10.1353/obs.2017.0002}
+
+\leavevmode\vadjust pre{\hypertarget{ref-dowd_donuts_2021}{}}%
+Dowd, C. (2021). \emph{Donuts and distant {CATEs}: Derivative bounds for
+{RD} extrapolation} (No. 3641913).
+\url{https://doi.org/10.2139/ssrn.3641913}
+
+\leavevmode\vadjust pre{\hypertarget{ref-hansen_punishment_2015}{}}%
+Hansen, B. (2015). Punishment and deterrence: Evidence from drunk
+driving. \emph{American Economic Review}, \emph{105}(4), 1581--1617.
+\url{https://doi.org/10.1257/aer.20130189}
+
+\leavevmode\vadjust pre{\hypertarget{ref-imbens_optimal_2012}{}}%
+Imbens, G., \& Kalyanaraman, K. (2012). Optimal bandwidth choice for the
+regression discontinuity estimator. \emph{The Review of Economic
+Studies}, \emph{79}(3), 933--959.
+https://doi.org/\url{https://doi.org/10.1093/restud/rdr043}
+
+\leavevmode\vadjust pre{\hypertarget{ref-xu_regression_2017}{}}%
+Xu, K.-L. (2017). Regression discontinuity with categorical outcomes.
+\emph{Journal of Econometrics}, \emph{201}(1), 1--18.
+\url{https://doi.org/10.1016/j.jeconom.2017.07.004}
+
+\end{CSLReferences}
+
+\newpage
+
+\hypertarget{appendix-a-analysis-code}{%
+\section*{Appendix A: Analysis Code}\label{appendix-a-analysis-code}}
+\addcontentsline{toc}{section}{Appendix A: Analysis Code}
 
 This appendix presents the code associated with the assignment
 questions. A full list of analysis code is stored in the Github
-repository:
-\url{https://github.com/ellen-ying/PB4A7_QuantitativeApplications}.
+repository (link masked for the anonymity of the report).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -690,13 +741,13 @@ repository:
 \FunctionTok{library}\NormalTok{(rdrobust);}\FunctionTok{library}\NormalTok{(wesanderson)}
 
 \CommentTok{\# input data}
-\NormalTok{bac\_data }\OtherTok{\textless{}{-}} 
+\NormalTok{bac\_data }\OtherTok{\textless{}{-}}
   \FunctionTok{here}\NormalTok{(}\StringTok{"summative/data/hansen\_dwi.dta"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# locate the data}
   \FunctionTok{read\_dta}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# read the dta file}
   \CommentTok{\# code variables}
   \FunctionTok{mutate}\NormalTok{(}
     \CommentTok{\# code into drive under influence (dui) = 1 if bac1 \textgreater{}= 0.08}
-    \AttributeTok{dui =} \FunctionTok{ifelse}\NormalTok{(bac1 }\SpecialCharTok{\textgreater{}=} \FloatTok{0.08}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }
+    \AttributeTok{dui =} \FunctionTok{ifelse}\NormalTok{(bac1 }\SpecialCharTok{\textgreater{}=} \FloatTok{0.08}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
     \CommentTok{\# create a centered bac1 variable}
     \AttributeTok{bac1\_ctd =}\NormalTok{ bac1 }\SpecialCharTok{{-}} \FloatTok{0.08}\NormalTok{,}
     \CommentTok{\# create a quadratic term for both bac1 and bac1\_ctd}
@@ -708,12 +759,12 @@ repository:
 
 \CommentTok{\# create the histogram treating BAC as a discrete variable}
 \CommentTok{\# equivalent to stata function histogram bac1, discrete width(0.001)}
-\NormalTok{bac\_data }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{bac\_data }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ bac1)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \FloatTok{0.001}\NormalTok{, }\AttributeTok{fill =} \StringTok{"grey60"}\NormalTok{, }\AttributeTok{color =} \ConstantTok{NA}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \FloatTok{0.001}\NormalTok{, }\AttributeTok{fill =} \StringTok{"grey60"}\NormalTok{, }\AttributeTok{color =} \ConstantTok{NA}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =} \FloatTok{0.08}\NormalTok{, }\AttributeTok{size =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =} \FloatTok{0.15}\NormalTok{, }\AttributeTok{size =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.1}\NormalTok{), }
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.1}\NormalTok{),}
                      \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"0"}\NormalTok{, }\StringTok{"0.1"}\NormalTok{, }\StringTok{"0.2"}\NormalTok{, }\StringTok{"0.3"}\NormalTok{, }\StringTok{"0.4"}\NormalTok{, }\StringTok{"0.5"}\NormalTok{),}
                      \AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.01}\NormalTok{)) }\SpecialCharTok{+}
   \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\AttributeTok{by =} \DecValTok{500}\NormalTok{),}
@@ -733,7 +784,7 @@ repository:
     \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{13}\NormalTok{, }\AttributeTok{margin =} \FunctionTok{margin}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)),}
     \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{13}\NormalTok{, }\AttributeTok{margin =} \FunctionTok{margin}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)),}
     \AttributeTok{plot.margin =} \FunctionTok{margin}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{)}
-    
+
 \NormalTok{  )}
 \end{Highlighting}
 \end{Shaded}
@@ -742,13 +793,13 @@ repository:
 \begin{Highlighting}[]
 \CommentTok{\# create the histogram treating BAC as a continuous variable}
 \CommentTok{\# equivalent to stata function histogram bac1, width(0.001)}
-\NormalTok{bac\_data }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{bac1 =}\NormalTok{ bac1 }\SpecialCharTok{{-}} \FloatTok{0.0005}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{bac\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{bac1 =}\NormalTok{ bac1 }\SpecialCharTok{{-}} \FloatTok{0.0005}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ bac1)) }\SpecialCharTok{+}
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \FloatTok{0.001}\NormalTok{, }\AttributeTok{fill =} \StringTok{"grey60"}\NormalTok{, }\AttributeTok{color =} \ConstantTok{NA}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =} \FloatTok{0.08} \SpecialCharTok{{-}} \FloatTok{0.0005}\NormalTok{, }\AttributeTok{size =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =} \FloatTok{0.15} \SpecialCharTok{{-}} \FloatTok{0.0005}\NormalTok{, }\AttributeTok{size =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.1}\NormalTok{), }
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.1}\NormalTok{),}
                      \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"0"}\NormalTok{, }\StringTok{"0.1"}\NormalTok{, }\StringTok{"0.2"}\NormalTok{, }\StringTok{"0.3"}\NormalTok{, }\StringTok{"0.4"}\NormalTok{, }\StringTok{"0.5"}\NormalTok{),}
                      \AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.01}\NormalTok{)) }\SpecialCharTok{+}
   \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{3000}\NormalTok{, }\AttributeTok{by =} \DecValTok{1000}\NormalTok{),}
@@ -768,7 +819,7 @@ repository:
     \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{13}\NormalTok{, }\AttributeTok{margin =} \FunctionTok{margin}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)),}
     \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{13}\NormalTok{, }\AttributeTok{margin =} \FunctionTok{margin}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)),}
     \AttributeTok{plot.margin =} \FunctionTok{margin}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{)}
-    
+
 \NormalTok{  )}
 \end{Highlighting}
 \end{Shaded}
@@ -794,19 +845,19 @@ repository:
 \CommentTok{\# check being white}
 \NormalTok{white\_rdd }\OtherTok{\textless{}{-}}\NormalTok{ dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%} \FunctionTok{lm}\NormalTok{(white }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{bac1\_ctd, }\AttributeTok{data =}\NormalTok{ .)}
 \CommentTok{\# display results with robust SEs}
-\FunctionTok{summaryR.lm}\NormalTok{(white\_rdd, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{) }
+\FunctionTok{summaryR.lm}\NormalTok{(white\_rdd, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
 
 \CommentTok{\# check being male}
 \NormalTok{male\_rdd }\OtherTok{\textless{}{-}}\NormalTok{ dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%} \FunctionTok{lm}\NormalTok{(male }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{bac1\_ctd, }\AttributeTok{data =}\NormalTok{ .)}
-\FunctionTok{summaryR.lm}\NormalTok{(male\_rdd, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{) }
+\FunctionTok{summaryR.lm}\NormalTok{(male\_rdd, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
 
 \CommentTok{\# check accident}
 \NormalTok{accident\_rdd }\OtherTok{\textless{}{-}}\NormalTok{ dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%} \FunctionTok{lm}\NormalTok{(acc }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{bac1\_ctd, }\AttributeTok{data =}\NormalTok{ .)}
-\FunctionTok{summaryR.lm}\NormalTok{(accident\_rdd, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{) }
+\FunctionTok{summaryR.lm}\NormalTok{(accident\_rdd, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
 
 \CommentTok{\# check age}
 \NormalTok{age\_rdd }\OtherTok{\textless{}{-}}\NormalTok{ dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%} \FunctionTok{lm}\NormalTok{(aged }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{bac1\_ctd, }\AttributeTok{data =}\NormalTok{ .)}
-\FunctionTok{summaryR.lm}\NormalTok{(age\_rdd, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{) }
+\FunctionTok{summaryR.lm}\NormalTok{(age\_rdd, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -823,15 +874,15 @@ repository:
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# linear regression}
-\NormalTok{linear\_a }\OtherTok{\textless{}{-}} 
-\NormalTok{  dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{linear\_a }\OtherTok{\textless{}{-}}
+\NormalTok{  dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{lm}\NormalTok{(recidivism }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{bac1\_ctd }\SpecialCharTok{+}\NormalTok{ white }\SpecialCharTok{+}\NormalTok{ male }\SpecialCharTok{+}\NormalTok{ acc }\SpecialCharTok{+}\NormalTok{ aged,}
      \AttributeTok{data =}\NormalTok{ .)}
 \FunctionTok{summaryR.lm}\NormalTok{(linear\_a, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
 
 \CommentTok{\# quadratic model}
-\NormalTok{qua\_a }\OtherTok{\textless{}{-}} 
-\NormalTok{  dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{qua\_a }\OtherTok{\textless{}{-}}
+\NormalTok{  dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{lm}\NormalTok{(recidivism }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{(bac1\_ctd }\SpecialCharTok{+}\NormalTok{ bac1\_ctd\_sq) }\SpecialCharTok{+}\NormalTok{ white }\SpecialCharTok{+}\NormalTok{ male }\SpecialCharTok{+}\NormalTok{ acc }\SpecialCharTok{+}\NormalTok{ aged,}
      \AttributeTok{data =}\NormalTok{ .)}
 \FunctionTok{summaryR.lm}\NormalTok{(qua\_a, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
@@ -841,15 +892,15 @@ repository:
 \NormalTok{dat\_bandwidth\_0}\FloatTok{.025} \OtherTok{\textless{}{-}}\NormalTok{ bac\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\FunctionTok{abs}\NormalTok{(bac1\_ctd) }\SpecialCharTok{\textless{}=} \FloatTok{0.025}\NormalTok{)}
 
 \CommentTok{\# linear regression}
-\NormalTok{linear\_b }\OtherTok{\textless{}{-}} 
-\NormalTok{  dat\_bandwidth\_0}\FloatTok{.025} \SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{linear\_b }\OtherTok{\textless{}{-}}
+\NormalTok{  dat\_bandwidth\_0}\FloatTok{.025} \SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{lm}\NormalTok{(recidivism }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{bac1\_ctd }\SpecialCharTok{+}\NormalTok{ white }\SpecialCharTok{+}\NormalTok{ male }\SpecialCharTok{+}\NormalTok{ acc }\SpecialCharTok{+}\NormalTok{ aged,}
      \AttributeTok{data =}\NormalTok{ .)}
 \FunctionTok{summaryR.lm}\NormalTok{(linear\_b, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
 
 \CommentTok{\# quadratic model}
-\NormalTok{qua\_b }\OtherTok{\textless{}{-}} 
-\NormalTok{  dat\_bandwidth\_0}\FloatTok{.025} \SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{qua\_b }\OtherTok{\textless{}{-}}
+\NormalTok{  dat\_bandwidth\_0}\FloatTok{.025} \SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{lm}\NormalTok{(recidivism }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{(bac1\_ctd }\SpecialCharTok{+}\NormalTok{ bac1\_ctd\_sq) }\SpecialCharTok{+}\NormalTok{ white }\SpecialCharTok{+}\NormalTok{ male }\SpecialCharTok{+}\NormalTok{ acc }\SpecialCharTok{+}\NormalTok{ aged,}
      \AttributeTok{data =}\NormalTok{ .)}
 \FunctionTok{summaryR.lm}\NormalTok{(qua\_b, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
@@ -872,33 +923,33 @@ repository:
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# linear regression}
-\NormalTok{linear\_a\_donut }\OtherTok{\textless{}{-}} 
-\NormalTok{  dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{(donut }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{linear\_a\_donut }\OtherTok{\textless{}{-}}
+\NormalTok{  dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(donut }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{lm}\NormalTok{(recidivism }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{bac1\_ctd }\SpecialCharTok{+}\NormalTok{ white }\SpecialCharTok{+}\NormalTok{ male }\SpecialCharTok{+}\NormalTok{ acc }\SpecialCharTok{+}\NormalTok{ aged,}
      \AttributeTok{data =}\NormalTok{ .)}
 \FunctionTok{summaryR.lm}\NormalTok{(linear\_a\_donut, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
 
 \CommentTok{\# narrower bandwidth}
-\NormalTok{linear\_b\_donut }\OtherTok{\textless{}{-}} 
-\NormalTok{  dat\_bandwidth\_0}\FloatTok{.025} \SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{(donut }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{linear\_b\_donut }\OtherTok{\textless{}{-}}
+\NormalTok{  dat\_bandwidth\_0}\FloatTok{.025} \SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(donut }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{lm}\NormalTok{(recidivism }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{bac1\_ctd }\SpecialCharTok{+}\NormalTok{ white }\SpecialCharTok{+}\NormalTok{ male }\SpecialCharTok{+}\NormalTok{ acc }\SpecialCharTok{+}\NormalTok{ aged,}
      \AttributeTok{data =}\NormalTok{ .)}
 \FunctionTok{summaryR.lm}\NormalTok{(linear\_b\_donut, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
 
 \CommentTok{\# quadratic model}
-\NormalTok{qua\_a\_donut }\OtherTok{\textless{}{-}} 
-\NormalTok{  dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{(donut }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{qua\_a\_donut }\OtherTok{\textless{}{-}}
+\NormalTok{  dat\_bandwidth\_0}\FloatTok{.05} \SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(donut }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{lm}\NormalTok{(recidivism }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{(bac1\_ctd }\SpecialCharTok{+}\NormalTok{ bac1\_ctd\_sq) }\SpecialCharTok{+}\NormalTok{ white }\SpecialCharTok{+}\NormalTok{ male }\SpecialCharTok{+}\NormalTok{ acc }\SpecialCharTok{+}\NormalTok{ aged,}
      \AttributeTok{data =}\NormalTok{ .)}
 \FunctionTok{summaryR.lm}\NormalTok{(qua\_a\_donut, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
 
 \CommentTok{\# narrower bandwidth}
-\NormalTok{qua\_b\_donut }\OtherTok{\textless{}{-}} 
-\NormalTok{  dat\_bandwidth\_0}\FloatTok{.025} \SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{(donut }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{qua\_b\_donut }\OtherTok{\textless{}{-}}
+\NormalTok{  dat\_bandwidth\_0}\FloatTok{.025} \SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(donut }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{lm}\NormalTok{(recidivism }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dui}\SpecialCharTok{*}\NormalTok{(bac1\_ctd }\SpecialCharTok{+}\NormalTok{ bac1\_ctd\_sq) }\SpecialCharTok{+}\NormalTok{ white }\SpecialCharTok{+}\NormalTok{ male }\SpecialCharTok{+}\NormalTok{ acc }\SpecialCharTok{+}\NormalTok{ aged,}
      \AttributeTok{data =}\NormalTok{ .)}
 \FunctionTok{summaryR.lm}\NormalTok{(qua\_b\_donut, }\AttributeTok{type =} \StringTok{"hc1"}\NormalTok{)}
@@ -921,35 +972,35 @@ repository:
 \NormalTok{dat\_tirmmed }\OtherTok{\textless{}{-}}\NormalTok{ bac\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(bac1 }\SpecialCharTok{\textgreater{}} \FloatTok{0.06} \SpecialCharTok{\&}\NormalTok{ bac1 }\SpecialCharTok{\textless{}} \FloatTok{0.11}\NormalTok{)}
 
 \CommentTok{\# number of breaks left to the cutoff}
-\NormalTok{n\_left }\OtherTok{\textless{}{-}} 
-  \FunctionTok{filter}\NormalTok{(dat\_tirmmed, bac1\_ctd }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{nrow}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{min}\NormalTok{(}\FunctionTok{sqrt}\NormalTok{(.), }\DecValTok{10}\SpecialCharTok{*}\FunctionTok{log}\NormalTok{(.)}\SpecialCharTok{/}\FunctionTok{log}\NormalTok{(}\DecValTok{10}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{n\_left }\OtherTok{\textless{}{-}}
+  \FunctionTok{filter}\NormalTok{(dat\_tirmmed, bac1\_ctd }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{nrow}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{min}\NormalTok{(}\FunctionTok{sqrt}\NormalTok{(.), }\DecValTok{10}\SpecialCharTok{*}\FunctionTok{log}\NormalTok{(.)}\SpecialCharTok{/}\FunctionTok{log}\NormalTok{(}\DecValTok{10}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{floor}\NormalTok{() }\SpecialCharTok{+} \DecValTok{1}
 \CommentTok{\# number of breaks right to the cutoff}
-\NormalTok{n\_right }\OtherTok{\textless{}{-}} 
-  \FunctionTok{filter}\NormalTok{(dat\_tirmmed, bac1\_ctd }\SpecialCharTok{\textgreater{}=} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{nrow}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{min}\NormalTok{(}\FunctionTok{sqrt}\NormalTok{(.), }\DecValTok{10}\SpecialCharTok{*}\FunctionTok{log}\NormalTok{(.)}\SpecialCharTok{/}\FunctionTok{log}\NormalTok{(}\DecValTok{10}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{n\_right }\OtherTok{\textless{}{-}}
+  \FunctionTok{filter}\NormalTok{(dat\_tirmmed, bac1\_ctd }\SpecialCharTok{\textgreater{}=} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{nrow}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{min}\NormalTok{(}\FunctionTok{sqrt}\NormalTok{(.), }\DecValTok{10}\SpecialCharTok{*}\FunctionTok{log}\NormalTok{(.)}\SpecialCharTok{/}\FunctionTok{log}\NormalTok{(}\DecValTok{10}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{floor}\NormalTok{() }\SpecialCharTok{+} \DecValTok{1}
 
 \CommentTok{\# get the breaks based on bin numbers}
 \NormalTok{min\_bac }\OtherTok{\textless{}{-}} \FunctionTok{min}\NormalTok{(dat\_tirmmed}\SpecialCharTok{$}\NormalTok{bac1)}
 \NormalTok{max\_bac\_lower }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(dat\_tirmmed, bac1\_ctd }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{)}\SpecialCharTok{$}\NormalTok{bac1 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{max}\NormalTok{()}
-\NormalTok{max\_bac }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(dat\_tirmmed}\SpecialCharTok{$}\NormalTok{bac1) }
-\NormalTok{breaks }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{seq}\NormalTok{(min\_bac, max\_bac\_lower, }\AttributeTok{length.out =}\NormalTok{ n\_left), }
+\NormalTok{max\_bac }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(dat\_tirmmed}\SpecialCharTok{$}\NormalTok{bac1)}
+\NormalTok{breaks }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{seq}\NormalTok{(min\_bac, max\_bac\_lower, }\AttributeTok{length.out =}\NormalTok{ n\_left),}
                \FunctionTok{seq}\NormalTok{(}\FloatTok{0.08}\NormalTok{, max\_bac, }\AttributeTok{length.out =}\NormalTok{ n\_right))}
 
 \CommentTok{\# plotting}
-\NormalTok{dat\_tirmmed }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{dat\_tirmmed }\SpecialCharTok{\%\textgreater{}\%}
   \CommentTok{\# create the bins}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{bins =} \FunctionTok{cut}\NormalTok{(bac1, }\AttributeTok{breaks =}\NormalTok{ breaks)) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{group\_by}\NormalTok{(bins) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{bins =} \FunctionTok{cut}\NormalTok{(bac1, }\AttributeTok{breaks =}\NormalTok{ breaks)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(bins) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{summarize}\NormalTok{(}
     \AttributeTok{recidivism =} \FunctionTok{mean}\NormalTok{(recidivism), }\CommentTok{\# calculate the mean recidivism in each group}
     \AttributeTok{bac =} \FunctionTok{mean}\NormalTok{(bac1), }\CommentTok{\# roughly the midpoint of each bin for plotting the x axis}
     \AttributeTok{dui =} \FunctionTok{ifelse}\NormalTok{(bac }\SpecialCharTok{\textgreater{}=}\FloatTok{0.08}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{factor}\NormalTok{() }\CommentTok{\# indicator for DUI}
-\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ bac, }\AttributeTok{y =}\NormalTok{ recidivism, }\AttributeTok{color =}\NormalTok{ dui)) }\SpecialCharTok{+}
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{show.legend =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
   \CommentTok{\# superimpose a fitted line model and confidence interval using the raw data}
@@ -1013,13 +1064,13 @@ repository:
 \CommentTok{\# collect dots for plotting lines in one tibble}
 \NormalTok{line }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{x =} \FunctionTok{c}\NormalTok{(x\_plot\_l, x\_plot\_r),}
        \AttributeTok{y =} \FunctionTok{c}\NormalTok{(y\_hat\_l, y\_hat\_r),}
-       \AttributeTok{dui =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{499}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{500}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{factor}\NormalTok{()) }
+       \AttributeTok{dui =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{499}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{500}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{factor}\NormalTok{())}
 
 \CommentTok{\# plotting}
-\FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+} 
-  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ rdplot\_mean\_bin, }\AttributeTok{y =}\NormalTok{ rdplot\_mean\_y), }
+\FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ rdplot\_mean\_bin, }\AttributeTok{y =}\NormalTok{ rdplot\_mean\_y),}
             \AttributeTok{col =} \StringTok{"\#728C94"}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{data =}\NormalTok{ line, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ x, }\AttributeTok{y =}\NormalTok{ y, }\AttributeTok{color =}\NormalTok{ dui), }
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{data =}\NormalTok{ line, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ x, }\AttributeTok{y =}\NormalTok{ y, }\AttributeTok{color =}\NormalTok{ dui),}
             \AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{inherit.aes =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.legend =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_ribbon}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ rdplot\_mean\_bin, }\AttributeTok{ymin =}\NormalTok{ rdplot\_cil\_bin, }\AttributeTok{ymax =}\NormalTok{ rdplot\_cir\_bin),}
               \AttributeTok{fill =} \StringTok{"\#CE0000"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\SpecialCharTok{+}
@@ -1046,73 +1097,346 @@ repository:
 
 \newpage
 
-\hypertarget{references}{%
-\section*{References}\label{references}}
-\addcontentsline{toc}{section}{References}
+\hypertarget{appendix-b-notes-on-the-econometrics-methods}{%
+\section*{Appendix B: Notes on the Econometrics
+Methods}\label{appendix-b-notes-on-the-econometrics-methods}}
+\addcontentsline{toc}{section}{Appendix B: Notes on the Econometrics
+Methods}
 
-\hypertarget{refs}{}
-\begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-barreca_heaping-induced_2016}{}}%
-Barreca, A. I., Lindo, J. M., \& Waddell, G. R. (2016). Heaping-induced
-bias in regression-discontinuity designs. \emph{Economic Inquiry},
-\emph{54}(1), 268--293. \url{https://doi.org/10.1111/ecin.12225}
+\hypertarget{the-rdd-asumption-about-manipulation}{%
+\subsection*{The RDD asumption about
+manipulation}\label{the-rdd-asumption-about-manipulation}}
+\addcontentsline{toc}{subsection}{The RDD asumption about manipulation}
 
-\leavevmode\vadjust pre{\hypertarget{ref-calonico_coverage_2022}{}}%
-Calonico, S., Cattaneo, M. D., \& Farrell, M. H. (2022). Coverage error
-optimal confidence intervals for local polynomial regression.
-\emph{Bernoulli}, \emph{28}(4). \url{https://doi.org/10.3150/21-BEJ1445}
+In addition to the absence of non-random heaping, another important
+assumption of the RDD is that people need to be randomly assigned to
+receiving punishment at the BAC threshold. In other words, neither the
+drivers nor the police can manipulate the BAC level and thus whether one
+will receive punishments. Hansen (2015) has already given a plausible
+theoretical justification for this assumption. Empirically, I plot the
+distribution of BAC and test for discontinuity in its distribution at
+the threshold (Figure \ref{fig:bac_hist_continuous}). Based on a
+recently developed local polynomial density estimator (Cattaneo et al.,
+2020), the hypothesis that the distribution is continuous at 0.08 cannot
+be rejected at the level of 0.05 (\textit{p} = 0.890). Therefore, there
+is no evidence for the existence of manipulation on the BAC level.
 
-\leavevmode\vadjust pre{\hypertarget{ref-calonico_regression_2019}{}}%
-Calonico, S., Cattaneo, M. D., Farrell, M. H., \& Titiunik, R. (2019).
-Regression discontinuity designs using covariates. \emph{The Review of
-Economics and Statistics}, \emph{101}(3), 442--451.
-\url{https://doi.org/10.1162/rest_a_00760}
+\hypertarget{models}{%
+\subsection*{Models}\label{models}}
+\addcontentsline{toc}{subsection}{Models}
 
-\leavevmode\vadjust pre{\hypertarget{ref-calonico_rdrobust_2017}{}}%
-Calonico, S., Cattaneo, M. D., Farrell, M. H., \& Titiunik, R. (2017).
-Rdrobust: Software for regression-discontinuity designs. \emph{The Stata
-Journal}, \emph{17}(2), 372--404.
-https://doi.org/\url{https://doi.org/10.1177/1536867X1701700208}
+The local linear regression model used in the main analyses is specified
+by the following function:
 
-\leavevmode\vadjust pre{\hypertarget{ref-calonico_rdrobust_2015}{}}%
-Calonico, S., Cattaneo, M., D., \& Titiunik, R. (2015). Rdrobust: An r
-package for robust nonparametric inference in regression-discontinuity
-designs. \emph{The R Journal}, \emph{7}(1), 38.
-\url{https://doi.org/10.32614/RJ-2015-004}
+\begin{equation}
+  \label{eqn:model}
+  R_i = \alpha + \beta_1 DUI_i + \beta_2 BAC_i + \beta_3 DUI_i \times BAC_i + \tau Z_i + \epsilon_i
+\end{equation}
 
-\leavevmode\vadjust pre{\hypertarget{ref-cattaneo_simple_2020}{}}%
-Cattaneo, M. D., Jansson, M., \& Ma, X. (2020). Simple local polynomial
-density estimators. \emph{Journal of the American Statistical
-Association}, \emph{115}(531), 1449--1455.
-\url{https://doi.org/10.1080/01621459.2019.1635480}
+The second-order polynomial used in the sensitivity analyses by the
+following function:
 
-\leavevmode\vadjust pre{\hypertarget{ref-cattaneo_choice_2017}{}}%
-Cattaneo, M. D., \& Vazquez-Bare, G. (2017). The choice of neighborhood
-in regression discontinuity designs. \emph{Observational Studies},
-\emph{3}(2), 134--146.
-https://doi.org/\url{https://doi.org/10.1353/obs.2017.0002}
+\begin{equation}
+  R_i = \alpha + \beta_1 DUI_i + \beta_2 BAC_i + \beta_3 BAC_i^2 + \beta_4 DUI_i \times BAC_i + \beta_5 DUI_i \times BAC_i^2 + \tau Z_i + \epsilon_i
+\end{equation}
 
-\leavevmode\vadjust pre{\hypertarget{ref-dowd_donuts_2021}{}}%
-Dowd, C. (2021). \emph{Donuts and distant {CATEs}: Derivative bounds for
-{RD} extrapolation} (No. 3641913).
-\url{https://doi.org/10.2139/ssrn.3641913}
+In both models, the variable \(R_i\) is an indicator of recidivism,
+\(DUI_i\) is an indicator of whether BAC is above the 0.08 threshold,
+\(BAC_i\) is the measure of BAC level, and \(Z_i\) is a vector of
+control variables. The variable \(BAC_i\) in the model is centred around
+the threshold value of 0.08 so that the coefficients \(\beta_1\) can be
+directly interpreted as the estimates of the effect.
 
-\leavevmode\vadjust pre{\hypertarget{ref-hansen_punishment_2015}{}}%
-Hansen, B. (2015). Punishment and deterrence: Evidence from drunk
-driving. \emph{American Economic Review}, \emph{105}(4), 1581--1617.
-\url{https://doi.org/10.1257/aer.20130189}
+\newpage
 
-\leavevmode\vadjust pre{\hypertarget{ref-imbens_optimal_2012}{}}%
-Imbens, G., \& Kalyanaraman, K. (2012). Optimal bandwidth choice for the
-regression discontinuity estimator. \emph{The Review of Economic
-Studies}, \emph{79}(3), 933--959.
-https://doi.org/\url{https://doi.org/10.1093/restud/rdr043}
+\hypertarget{appendix-c-simulations}{%
+\section*{Appendix C: Simulations}\label{appendix-c-simulations}}
+\addcontentsline{toc}{section}{Appendix C: Simulations}
 
-\leavevmode\vadjust pre{\hypertarget{ref-xu_regression_2017}{}}%
-Xu, K.-L. (2017). Regression discontinuity with categorical outcomes.
-\emph{Journal of Econometrics}, \emph{201}(1), 1--18.
-\url{https://doi.org/10.1016/j.jeconom.2017.07.004}
+\hypertarget{simulating-non-random-heaping}{%
+\subsection*{Simulating non-random
+heaping}\label{simulating-non-random-heaping}}
+\addcontentsline{toc}{subsection}{Simulating non-random heaping}
 
-\end{CSLReferences}
+This simulation explains how measurement error in the breathalysers can
+give rise to non-random heaping. It will also show how this particular
+kind of non-random heaping is invisible when the data is treated as
+discrete.
+
+We first simulate a raw dataset. To keep the simulation simple but also
+similar to the original case, the data here is uniformly distributed
+from 0 to 1, with a precision to 3 digits after the decimal point.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# set seed}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{32876}\NormalTok{)}
+
+\DocumentationTok{\#\# simulate the original data \#\#}
+\CommentTok{\# a sequence of possible values given by a breathalyser}
+\CommentTok{\# a vector of integers from 0 to 1000}
+\NormalTok{x\_0 }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{1e3}\NormalTok{, }\AttributeTok{by =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# sample from x\_0 with equal probability to simulate}
+\CommentTok{\# a sample of data collected by the breathalyser}
+\NormalTok{n }\OtherTok{\textless{}{-}}  \FloatTok{1e5}
+\NormalTok{x\_index }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(x\_0, }\AttributeTok{size =}\NormalTok{ n, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{,}
+            \AttributeTok{prob =} \FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\FunctionTok{length}\NormalTok{(x\_0), }\FunctionTok{length}\NormalTok{(x\_0)))}
+\CommentTok{\# rescale to x}
+\CommentTok{\# x is precise to 3 digits after the decimal point and uniformly distributed}
+\NormalTok{x }\OtherTok{\textless{}{-}}\NormalTok{ x\_index}\SpecialCharTok{/}\DecValTok{1000}
+\end{Highlighting}
+\end{Shaded}
+
+Now we want to simulate the measurement error made by the breathalyser.
+Assume our breathalyser makes errors in a periodic manner: it can
+measure the first 18 values accurately, and then measure the next value
+slightly higher, followed by the next value measured slightly lower. In
+other words, for the sequence of the values the breathalyser is able to
+measure, it makes 2 errors at the end of every 20 values.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# simulate measurement error \#\#}
+\CommentTok{\# for the sequence of value a breathalyser is able to measure}
+\CommentTok{\# every 18 values that it is able to correctly measure is followed by}
+\CommentTok{\# a value it makes measurement error upwards}
+\CommentTok{\# and then a value with an error downwards}
+\NormalTok{error\_0 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{18}\NormalTok{), }\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}
+\NormalTok{error }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(error\_0, n}\SpecialCharTok{/}\FunctionTok{length}\NormalTok{(error\_0))}
+
+\DocumentationTok{\#\# simulate heaping \#\#}
+\CommentTok{\# create an empty vector}
+\NormalTok{x\_error }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{length}\NormalTok{(x))}
+\CommentTok{\# for each value of x, the measured value is determined by both}
+\CommentTok{\# its original value and whether the breathalyser is able to }
+\CommentTok{\# correctly measure x}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(x)) x\_error[i] }\OtherTok{\textless{}{-}}\NormalTok{ x[i] }\SpecialCharTok{+}\NormalTok{ error[x\_index[i]]}\SpecialCharTok{*}\FloatTok{2e{-}6}
+
+\CommentTok{\# treat x\_error as a discrete variable}
+\NormalTok{x\_discrete }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(x\_error)}
+\end{Highlighting}
+\end{Shaded}
+
+Let's check the results. First we want to see what the data looks like
+if the breathalyser does not make any error. We can see from the plot
+below that the data is uniformly distributed nicely.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(x, }\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.001}\NormalTok{), }\AttributeTok{col =} \StringTok{"white"}\NormalTok{,}
+     \AttributeTok{main =} \StringTok{"Histogram of the data without measurement error"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{49045_PB4A7_Report_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+Here are the histograms of the data with measurement error. The plot on
+the left is when the data is treated as a continuous variable. The
+measurement error makes the last bin at the end of every 20 bins contain
+more values than others. The plot on the right is when the data is
+treated as a discrete variable. Non-random heaping is invisible since
+each value in this histogram has its own bin. The values measured with
+error that would be binned together in the continuous histogram are
+separated here. This makes the heaping invisible in this plot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(x\_error, }\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.001}\NormalTok{),}
+     \AttributeTok{main =} \StringTok{"Histogram of the data }\SpecialCharTok{\textbackslash{}n}\StringTok{ with measurement error }\SpecialCharTok{\textbackslash{}n}\StringTok{ as a continuous variable"}\NormalTok{)}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(x\_discrete), }\AttributeTok{xlab =} \StringTok{"x\_error"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Frequency"}\NormalTok{,}
+        \AttributeTok{main =} \StringTok{"Histogram of the data }\SpecialCharTok{\textbackslash{}n}\StringTok{ with measurement error }\SpecialCharTok{\textbackslash{}n}\StringTok{ as a discrete variable"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{49045_PB4A7_Report_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\hypertarget{the-necessity-of-local-polynomials-in-a-donut-hole-model}{%
+\subsection*{The necessity of local polynomials in a donut hole
+model}\label{the-necessity-of-local-polynomials-in-a-donut-hole-model}}
+\addcontentsline{toc}{subsection}{The necessity of local polynomials in
+a donut hole model}
+
+This section gives a simulation example to illustrate why local
+polynomials are needed in a donut hole design. Particularly, under some
+data generating process, getting rid of the data near the threshold can
+lead to a drastic difference between the estimates given by a linear and
+a quadratic model.
+
+First generating the data we want.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# set seed}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{34827}\NormalTok{)}
+
+\DocumentationTok{\#\# simulate the data \#\#}
+\CommentTok{\# generate the running variable}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{100}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\AttributeTok{length.out =}\NormalTok{ n)}
+\NormalTok{x\_sq }\OtherTok{\textless{}{-}}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2}
+\CommentTok{\# generate the indicator variable, setting 0 as the cutoff point}
+\NormalTok{ind }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(x }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\CommentTok{\# mean value of the outcome}
+\NormalTok{mu\_left }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{+} \FloatTok{0.05}\SpecialCharTok{*}\NormalTok{x[}\FunctionTok{which}\NormalTok{(ind }\SpecialCharTok{==} \DecValTok{0}\NormalTok{)]}
+\NormalTok{mu\_right }\OtherTok{\textless{}{-}} \FloatTok{1.1} \SpecialCharTok{{-}} \FloatTok{0.02}\SpecialCharTok{*}\NormalTok{x[}\FunctionTok{which}\NormalTok{(ind }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)] }\SpecialCharTok{+}\NormalTok{ x[}\FunctionTok{which}\NormalTok{(ind }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)]}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{mu }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(mu\_left, mu\_right)}
+\CommentTok{\# simulate outcome variable with random error \textasciitilde{} norm(0, 0.02)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(n, mu, }\FloatTok{0.02}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Here are the estimates given by the regular RDD models. We can see the
+linear and the quadratic models are already giving different estimates.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# regular RDD \#\#}
+\CommentTok{\# linear model}
+\NormalTok{model\_linear }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ind}\SpecialCharTok{*}\NormalTok{x)}
+\FunctionTok{summary}\NormalTok{(model\_linear)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y ~ ind * x)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.066646 -0.015409 -0.002732  0.012278  0.056368 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 1.003208   0.006792 147.713  < 2e-16 ***
+## ind         0.046232   0.009605   4.813 5.52e-06 ***
+## x           0.056133   0.023293   2.410   0.0179 *  
+## ind:x       0.456895   0.032941  13.870  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.02401 on 96 degrees of freedom
+## Multiple R-squared:  0.9554, Adjusted R-squared:  0.954 
+## F-statistic: 685.3 on 3 and 96 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# quadratic model}
+\NormalTok{model\_qua }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ind}\SpecialCharTok{*}\NormalTok{(x }\SpecialCharTok{+}\NormalTok{ x\_sq))}
+\FunctionTok{summary}\NormalTok{(model\_qua)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y ~ ind * (x + x_sq))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.049210 -0.013100 -0.000029  0.012250  0.049643 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  1.002073   0.008416 119.061  < 2e-16 ***
+## ind          0.090294   0.011903   7.586 2.34e-11 ***
+## x            0.042659   0.076987   0.554    0.581    
+## x_sq        -0.026679   0.147601  -0.181    0.857    
+## ind:x       -0.039505   0.108876  -0.363    0.718    
+## ind:x_sq     1.036230   0.208739   4.964 3.07e-06 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.01982 on 94 degrees of freedom
+## Multiple R-squared:  0.9702, Adjusted R-squared:  0.9686 
+## F-statistic: 612.5 on 5 and 94 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+We now run the donut hole models with the data points in the window
+\([-0.1, 0.1]\) dropped. We can see the difference between the two
+models gets even bigger.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# donut whole RDD \#\#}
+\CommentTok{\# create an index for the data to be removed }
+\CommentTok{\# here the data within the window [{-}0.1, 0.1] are dropped}
+\NormalTok{index }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(}\FunctionTok{abs}\NormalTok{(x) }\SpecialCharTok{\textless{}=} \FloatTok{0.1}\NormalTok{)}
+\NormalTok{x\_donut }\OtherTok{\textless{}{-}}\NormalTok{ x[}\SpecialCharTok{{-}}\NormalTok{index]}
+\NormalTok{x\_sq\_donut }\OtherTok{\textless{}{-}}\NormalTok{ x\_sq[}\SpecialCharTok{{-}}\NormalTok{index]}
+\NormalTok{ind\_donut }\OtherTok{\textless{}{-}}\NormalTok{ ind[}\SpecialCharTok{{-}}\NormalTok{index]}
+\NormalTok{y\_donut }\OtherTok{\textless{}{-}}\NormalTok{ y[}\SpecialCharTok{{-}}\NormalTok{index]}
+
+\CommentTok{\# linear model}
+\NormalTok{donut\_linear }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y\_donut }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ind\_donut}\SpecialCharTok{*}\NormalTok{x\_donut)}
+\FunctionTok{summary}\NormalTok{(donut\_linear)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y_donut ~ ind_donut * x_donut)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.059963 -0.012245  0.000161  0.013934  0.052182 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)       0.997372   0.009385 106.277   <2e-16 ***
+## ind_donut         0.010642   0.013272   0.802    0.425    
+## x_donut           0.040351   0.028904   1.396    0.167    
+## ind_donut:x_donut 0.589272   0.040876  14.416   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.02131 on 76 degrees of freedom
+## Multiple R-squared:  0.9703, Adjusted R-squared:  0.9692 
+## F-statistic: 828.7 on 3 and 76 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# quadratic model}
+\NormalTok{donut\_qua }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y\_donut }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ind\_donut}\SpecialCharTok{*}\NormalTok{(x\_donut }\SpecialCharTok{+}\NormalTok{ x\_sq\_donut))}
+\FunctionTok{summary}\NormalTok{(donut\_qua)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y_donut ~ ind_donut * (x_donut + x_sq_donut))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.051596 -0.012810  0.000166  0.009101  0.052266 
+## 
+## Coefficients:
+##                      Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)           0.97677    0.02237  43.666  < 2e-16 ***
+## ind_donut             0.09586    0.03163   3.030  0.00336 ** 
+## x_donut              -0.11927    0.16139  -0.739  0.46224    
+## x_sq_donut           -0.26337    0.26244  -1.004  0.31888    
+## ind_donut:x_donut     0.24830    0.22824   1.088  0.28017    
+## ind_donut:x_sq_donut  1.08934    0.37115   2.935  0.00444 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.02017 on 74 degrees of freedom
+## Multiple R-squared:  0.9741, Adjusted R-squared:  0.9724 
+## F-statistic: 557.7 on 5 and 74 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+The moral here is essentially that removing data points may influence
+the conclusions we draw when comparing models with different functional
+forms. Even if the results may be robust to different functional forms
+under the regular RDD design, they can still be sensitive to the
+functional assumption under the donut hole design. It is thus a good
+idea to use both linear models and polynomials in the donut hole design.
 
 \end{document}
